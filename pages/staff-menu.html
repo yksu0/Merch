@@ -78,164 +78,324 @@
                 </div>
             </div>
 
+            <!-- Sort Controls -->
+            <div class="sort-controls">
+                <label class="sort-label">
+                    <span class="material-icons">sort</span>
+                    Sort by:
+                </label>
+                <select id="sort-select" class="sort-dropdown">
+                    <option value="default">Default</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                    <option value="prep-time">Prep Time (Fastest First)</option>
+                </select>
+            </div>
+
             <!-- Menu Items Grid -->
             <div class="menu-items-grid" id="menu-grid">
                 <!-- Appetizers -->
-                <div class="menu-card" data-category="appetizers">
+                <div class="menu-card" data-category="appetizers" data-price="100" data-prep="15" data-name="Lumpia Shanghai">
                     <div class="menu-image">
                         <img src="../assets/images/lumpia.jpg" alt="Lumpia Shanghai">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Lumpia Shanghai</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Lumpia Shanghai</h3>
+                            <button class="quick-toggle-btn" data-item="lumpia" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Crispy Filipino spring rolls filled with savory meat and vegetables</p>
-                        <p class="menu-price">₱100</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                15 min
+                            </span>
+                            <p class="menu-price">₱100</p>
+                        </div>
                         <button class="view-details-btn" data-item="lumpia">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="appetizers">
+                <div class="menu-card" data-category="appetizers" data-price="90" data-prep="12" data-name="Fresh Spring Rolls">
                     <div class="menu-image">
                         <img src="../assets/images/spring-rolls.jpg" alt="Fresh Spring Rolls">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-medium">Low Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Fresh Spring Rolls</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Fresh Spring Rolls</h3>
+                            <button class="quick-toggle-btn" data-item="spring-rolls" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Light and healthy spring rolls with fresh vegetables</p>
-                        <p class="menu-price">₱90</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                12 min
+                            </span>
+                            <p class="menu-price">₱90</p>
+                        </div>
                         <button class="view-details-btn" data-item="spring-rolls">View Details</button>
                     </div>
                 </div>
 
                 <!-- Main Course -->
-                <div class="menu-card" data-category="main">
+                <div class="menu-card" data-category="main" data-price="150" data-prep="25" data-name="Chicken Inasal">
                     <div class="menu-image">
                         <img src="../assets/images/chicken-inasal.jpg" alt="Chicken Inasal">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Chicken Inasal</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Chicken Inasal</h3>
+                            <button class="quick-toggle-btn" data-item="chicken-inasal" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Grilled chicken marinated in Filipino spices</p>
-                        <p class="menu-price">₱150</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                25 min
+                            </span>
+                            <p class="menu-price">₱150</p>
+                        </div>
                         <button class="view-details-btn" data-item="chicken-inasal">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="main">
+                <div class="menu-card" data-category="main" data-price="150" data-prep="30" data-name="Adobo">
                     <div class="menu-image">
                         <img src="../assets/images/adobo.jpg" alt="Adobo">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Adobo</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Adobo</h3>
+                            <button class="quick-toggle-btn" data-item="adobo" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Classic Filipino chicken or pork stew in soy sauce and vinegar</p>
-                        <p class="menu-price">₱150</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                30 min
+                            </span>
+                            <p class="menu-price">₱150</p>
+                        </div>
                         <button class="view-details-btn" data-item="adobo">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="main">
+                <div class="menu-card" data-category="main" data-price="150" data-prep="20" data-name="Sisig">
                     <div class="menu-image">
                         <img src="../assets/images/sisig.jpg" alt="Sisig">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-medium">Low Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Sisig</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Sisig</h3>
+                            <button class="quick-toggle-btn" data-item="sisig" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Sizzling pork with onions and chili peppers</p>
-                        <p class="menu-price">₱150</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                20 min
+                            </span>
+                            <p class="menu-price">₱150</p>
+                        </div>
                         <button class="view-details-btn" data-item="sisig">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="main">
+                <div class="menu-card" data-category="main" data-price="120" data-prep="18" data-name="Pancit Canton">
                     <div class="menu-image">
                         <img src="../assets/images/pancit.jpg" alt="Pancit Canton">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Pancit Canton</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Pancit Canton</h3>
+                            <button class="quick-toggle-btn" data-item="pancit" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Stir-fried noodles with vegetables and meat</p>
-                        <p class="menu-price">₱120</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                18 min
+                            </span>
+                            <p class="menu-price">₱120</p>
+                        </div>
                         <button class="view-details-btn" data-item="pancit">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="main">
+                <div class="menu-card" data-category="main" data-price="180" data-prep="22" data-name="Beef Tapa">
                     <div class="menu-image">
                         <img src="../assets/images/beef-tapa.jpg" alt="Beef Tapa">
                         <span class="availability-badge unavailable">Unavailable</span>
+                        <span class="stock-badge stock-low">Out of Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Beef Tapa</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Beef Tapa</h3>
+                            <button class="quick-toggle-btn" data-item="beef-tapa" title="Toggle availability">
+                                <span class="material-icons">visibility_off</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Marinated beef served with garlic rice and eggs</p>
-                        <p class="menu-price">₱180</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                22 min
+                            </span>
+                            <p class="menu-price">₱180</p>
+                        </div>
                         <button class="view-details-btn" data-item="beef-tapa">View Details</button>
                     </div>
                 </div>
 
                 <!-- Desserts -->
-                <div class="menu-card" data-category="desserts">
+                <div class="menu-card" data-category="desserts" data-price="100" data-prep="10" data-name="Halo-Halo">
                     <div class="menu-image">
                         <img src="../assets/images/halo-halo.jpg" alt="Halo-Halo">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Halo-Halo</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Halo-Halo</h3>
+                            <button class="quick-toggle-btn" data-item="halo-halo" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Classic Filipino shaved ice dessert with sweet beans and fruits</p>
-                        <p class="menu-price">₱100</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                10 min
+                            </span>
+                            <p class="menu-price">₱100</p>
+                        </div>
                         <button class="view-details-btn" data-item="halo-halo">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="desserts">
+                <div class="menu-card" data-category="desserts" data-price="80" data-prep="8" data-name="Leche Flan">
                     <div class="menu-image">
                         <img src="../assets/images/leche-flan.jpg" alt="Leche Flan">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Leche Flan</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Leche Flan</h3>
+                            <button class="quick-toggle-btn" data-item="leche-flan" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Creamy Filipino caramel custard</p>
-                        <p class="menu-price">₱80</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                8 min
+                            </span>
+                            <p class="menu-price">₱80</p>
+                        </div>
                         <button class="view-details-btn" data-item="leche-flan">View Details</button>
                     </div>
                 </div>
 
                 <!-- Beverages -->
-                <div class="menu-card" data-category="beverages">
+                <div class="menu-card" data-category="beverages" data-price="60" data-prep="5" data-name="Buko Juice">
                     <div class="menu-image">
                         <img src="../assets/images/buko-juice.jpg" alt="Buko Juice">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Buko Juice</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Buko Juice</h3>
+                            <button class="quick-toggle-btn" data-item="buko-juice" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Fresh coconut juice served cold</p>
-                        <p class="menu-price">₱60</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                5 min
+                            </span>
+                            <p class="menu-price">₱60</p>
+                        </div>
                         <button class="view-details-btn" data-item="buko-juice">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="beverages">
+                <div class="menu-card" data-category="beverages" data-price="50" data-prep="5" data-name="Calamansi Juice">
                     <div class="menu-image">
                         <img src="../assets/images/calamansi.jpg" alt="Calamansi Juice">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Calamansi Juice</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Calamansi Juice</h3>
+                            <button class="quick-toggle-btn" data-item="calamansi" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Refreshing Filipino lime juice</p>
-                        <p class="menu-price">₱50</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                5 min
+                            </span>
+                            <p class="menu-price">₱50</p>
+                        </div>
                         <button class="view-details-btn" data-item="calamansi">View Details</button>
                     </div>
                 </div>
 
-                <div class="menu-card" data-category="beverages">
+                <div class="menu-card" data-category="beverages" data-price="70" data-prep="5" data-name="Iced Coffee">
                     <div class="menu-image">
                         <img src="../assets/images/iced-coffee.jpg" alt="Iced Coffee">
                         <span class="availability-badge available">Available</span>
+                        <span class="stock-badge stock-high">In Stock</span>
                     </div>
                     <div class="menu-info">
-                        <h3 class="menu-name">Iced Coffee</h3>
+                        <div class="menu-header-row">
+                            <h3 class="menu-name">Iced Coffee</h3>
+                            <button class="quick-toggle-btn" data-item="iced-coffee" title="Toggle availability">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
                         <p class="menu-description">Cold brewed coffee with milk and sugar</p>
-                        <p class="menu-price">₱70</p>
+                        <div class="menu-meta">
+                            <span class="prep-time">
+                                <span class="material-icons">schedule</span>
+                                5 min
+                            </span>
+                            <p class="menu-price">₱70</p>
+                        </div>
                         <button class="view-details-btn" data-item="iced-coffee">View Details</button>
                     </div>
                 </div>
@@ -271,8 +431,20 @@
                         <span class="detail-value price" id="modal-item-price"></span>
                     </div>
                     <div class="detail-row">
+                        <span class="detail-label">Prep Time:</span>
+                        <span class="detail-value" id="modal-item-prep"></span>
+                    </div>
+                    <div class="detail-row">
                         <span class="detail-label">Availability:</span>
                         <span class="detail-value" id="modal-item-availability"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Ingredients:</span>
+                        <p class="detail-value ingredients-list" id="modal-item-ingredients"></p>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Good with:</span>
+                        <p class="detail-value combo-suggestions" id="modal-item-combos"></p>
                     </div>
                 </div>
             </div>

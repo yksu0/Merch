@@ -61,12 +61,101 @@
 
         <!-- Analytics Content -->
         <div class="dashboard-container">
-            <!-- Time Period Selector -->
+            <!-- Enhanced Time Period Filters -->
             <div class="period-selector-container">
-                <div class="period-selector">
-                    <button class="period-option active" data-period="today">Today</button>
-                    <button class="period-option" data-period="week">This Week</button>
-                    <button class="period-option" data-period="month">This Month</button>
+                <div class="period-filters-wrapper">
+                    <!-- Quick Filters -->
+                    <div class="period-quick-filters">
+                        <button class="period-option active" data-period="today">Today</button>
+                        <button class="period-option" data-period="yesterday">Yesterday</button>
+                        <button class="period-option" data-period="week">This Week</button>
+                        <button class="period-option" data-period="month">This Month</button>
+                        <div class="period-dropdown">
+                            <button class="period-option dropdown-toggle" id="advanced-filter-btn">
+                                More Filters
+                                <span class="material-icons">expand_more</span>
+                            </button>
+                            <div class="period-dropdown-menu" id="advanced-filter-menu">
+                                <button class="dropdown-item" data-period="last7">Last 7 Days</button>
+                                <button class="dropdown-item" data-period="last30">Last 30 Days</button>
+                                <button class="dropdown-item" data-period="last90">Last 90 Days</button>
+                                <div class="dropdown-divider"></div>
+                                <button class="dropdown-item" data-period="quarter" id="quarterly-btn">
+                                    <span class="material-icons">date_range</span>
+                                    Quarterly View
+                                </button>
+                                <button class="dropdown-item" data-period="year" id="yearly-btn">
+                                    <span class="material-icons">calendar_today</span>
+                                    Yearly View
+                                </button>
+                                <button class="dropdown-item" data-period="custom" id="custom-range-btn">
+                                    <span class="material-icons">event</span>
+                                    Custom Range
+                                </button>
+                                <div class="dropdown-divider"></div>
+                                <button class="dropdown-item" id="compare-toggle">
+                                    <span class="material-icons">compare_arrows</span>
+                                    Compare Periods
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Active Filter Display -->
+                    <div class="active-filter-display" id="active-filter-display" style="display: none;">
+                        <span class="filter-label" id="filter-label"></span>
+                        <button class="filter-clear" id="clear-filter">
+                            <span class="material-icons">close</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quarterly Selector (Hidden by default) -->
+                <div class="quarterly-selector" id="quarterly-selector" style="display: none;">
+                    <div class="quarter-options">
+                        <button class="quarter-option" data-quarter="Q1">Q1 (Jan-Mar)</button>
+                        <button class="quarter-option" data-quarter="Q2">Q2 (Apr-Jun)</button>
+                        <button class="quarter-option" data-quarter="Q3">Q3 (Jul-Sep)</button>
+                        <button class="quarter-option" data-quarter="Q4">Q4 (Oct-Dec)</button>
+                    </div>
+                    <select class="year-picker" id="quarter-year-picker">
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026" selected>2026</option>
+                    </select>
+                </div>
+                
+                <!-- Yearly Selector (Hidden by default) -->
+                <div class="yearly-selector" id="yearly-selector" style="display: none;">
+                    <label class="year-label">Select Year:</label>
+                    <select class="year-picker-large" id="year-picker">
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026" selected>2026</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Filter Tags & Categories -->
+            <div class="filters-bar" id="filters-bar">
+                <div class="filter-section">
+                    <label class="filter-section-label">Category:</label>
+                    <div class="filter-tags">
+                        <button class="filter-tag active" data-category="all">All</button>
+                        <button class="filter-tag" data-category="main">Main Course</button>
+                        <button class="filter-tag" data-category="appetizers">Appetizers</button>
+                        <button class="filter-tag" data-category="desserts">Desserts</button>
+                        <button class="filter-tag" data-category="beverages">Beverages</button>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <label class="filter-section-label">Item Type:</label>
+                    <div class="filter-tags">
+                        <button class="filter-tag active" data-itemtype="all">All Items</button>
+                        <button class="filter-tag" data-itemtype="combo">Combo Meals</button>
+                        <button class="filter-tag" data-itemtype="variants">With Variants</button>
+                        <button class="filter-tag" data-itemtype="popular">Top 20%</button>
+                    </div>
                 </div>
             </div>
 
@@ -160,100 +249,6 @@
                 </div>
             </div>
 
-            <!-- Popular Items -->
-            <div class="section-card">
-                <div class="section-header">
-                    <h2 class="section-title">Top Selling Items</h2>
-                    <span class="subtitle">This Week</span>
-                </div>
-                <div class="popular-items-list">
-                    <div class="popular-item">
-                        <div class="popular-rank">1</div>
-                        <div class="popular-image">
-                            <img src="../assets/images/chicken-inasal.jpg" alt="Chicken Inasal">
-                        </div>
-                        <div class="popular-info">
-                            <p class="popular-name">Chicken Inasal</p>
-                            <p class="popular-stats">248 orders</p>
-                        </div>
-                        <div class="popular-revenue">
-                            <p class="revenue-amount">₱37,200</p>
-                            <div class="revenue-bar">
-                                <div class="revenue-fill" style="width: 100%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="popular-item">
-                        <div class="popular-rank">2</div>
-                        <div class="popular-image">
-                            <img src="../assets/images/adobo.jpg" alt="Adobo">
-                        </div>
-                        <div class="popular-info">
-                            <p class="popular-name">Adobo</p>
-                            <p class="popular-stats">186 orders</p>
-                        </div>
-                        <div class="popular-revenue">
-                            <p class="revenue-amount">₱27,900</p>
-                            <div class="revenue-bar">
-                                <div class="revenue-fill" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="popular-item">
-                        <div class="popular-rank">3</div>
-                        <div class="popular-image">
-                            <img src="../assets/images/halo-halo.jpg" alt="Halo-Halo">
-                        </div>
-                        <div class="popular-info">
-                            <p class="popular-name">Halo-Halo</p>
-                            <p class="popular-stats">164 orders</p>
-                        </div>
-                        <div class="popular-revenue">
-                            <p class="revenue-amount">₱16,400</p>
-                            <div class="revenue-bar">
-                                <div class="revenue-fill" style="width: 44%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="popular-item">
-                        <div class="popular-rank">4</div>
-                        <div class="popular-image">
-                            <img src="../assets/images/lumpia.jpg" alt="Lumpia">
-                        </div>
-                        <div class="popular-info">
-                            <p class="popular-name">Lumpia Shanghai</p>
-                            <p class="popular-stats">152 orders</p>
-                        </div>
-                        <div class="popular-revenue">
-                            <p class="revenue-amount">₱15,200</p>
-                            <div class="revenue-bar">
-                                <div class="revenue-fill" style="width: 41%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="popular-item">
-                        <div class="popular-rank">5</div>
-                        <div class="popular-image">
-                            <img src="../assets/images/sisig.jpg" alt="Sisig">
-                        </div>
-                        <div class="popular-info">
-                            <p class="popular-name">Sisig</p>
-                            <p class="popular-stats">138 orders</p>
-                        </div>
-                        <div class="popular-revenue">
-                            <p class="revenue-amount">₱20,700</p>
-                            <div class="revenue-bar">
-                                <div class="revenue-fill" style="width: 56%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Order Trends -->
             <div class="section-card">
                 <h2 class="section-title">Order Trends</h2>
@@ -290,6 +285,111 @@
                             <p class="trend-subtitle">-2 min vs last week</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- New Analytics Cards -->
+            <div class="analytics-extended-grid">
+                <!-- Profit Card -->
+                <div class="analytics-card-extended">
+                    <div class="card-header-extended">
+                        <span class="material-icons card-icon">account_balance_wallet</span>
+                        <h3 class="card-title-extended">Total Profit</h3>
+                    </div>
+                    <div class="card-value-large" id="total-profit">₱8,540</div>
+                    <div class="card-subtitle">
+                        <span class="profit-margin-badge">68% margin</span>
+                    </div>
+                </div>
+                
+                <!-- Customers Card -->
+                <div class="analytics-card-extended">
+                    <div class="card-header-extended">
+                        <span class="material-icons card-icon">groups</span>
+                        <h3 class="card-title-extended">Total Customers</h3>
+                    </div>
+                    <div class="card-value-large" id="total-customers">342</div>
+                    <div class="card-subtitle">
+                        <span class="return-rate-badge">42% return rate</span>
+                    </div>
+                </div>
+                
+                <!-- Most Ordered Item Card -->
+                <div class="analytics-card-extended">
+                    <div class="card-header-extended">
+                        <span class="material-icons card-icon">star</span>
+                        <h3 class="card-title-extended">Most Ordered</h3>
+                    </div>
+                    <div class="card-value-medium" id="most-ordered-item">Chicken Inasal</div>
+                    <div class="card-subtitle" id="most-ordered-count">248 orders</div>
+                </div>
+                
+                <!-- Stock Value Card -->
+                <div class="analytics-card-extended">
+                    <div class="card-header-extended">
+                        <span class="material-icons card-icon">inventory_2</span>
+                        <h3 class="card-title-extended">Stock Value</h3>
+                    </div>
+                    <div class="card-value-large" id="stock-value">₱45,230</div>
+                    <div class="card-subtitle">
+                        <span class="low-stock-alert" id="low-stock-alert">3 items low</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category Breakdown Pie Chart -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Sales by Category</h2>
+                    <button class="chart-expand-btn" title="Expand Chart">
+                        <span class="material-icons">fullscreen</span>
+                    </button>
+                </div>
+                <div class="pie-chart-container">
+                    <canvas id="categoryPieChart" width="400" height="250"></canvas>
+                    <div class="pie-chart-legend" id="pie-legend"></div>
+                </div>
+            </div>
+            
+            <!-- Line Chart for Multi-Metric Trends -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Sales & Orders Trend</h2>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: var(--turf-green);"></span>
+                            <span>Sales</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: var(--amber-flame);"></span>
+                            <span>Orders</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-chart-container">
+                    <canvas id="trendLineChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            
+            <!-- Heatmap for Order Volume by Time -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Order Heatmap (Day x Hour)</h2>
+                    <span class="subtitle">Darker = More Orders</span>
+                </div>
+                <div class="heatmap-container" id="orderHeatmap"></div>
+            </div>
+            
+            <!-- Data Insights & Predictions -->
+            <div class="section-card insights-card">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="material-icons">lightbulb</span>
+                        Business Insights
+                    </h2>
+                </div>
+                <div class="insights-list" id="insights-list">
+                    <!-- Dynamically populated -->
                 </div>
             </div>
 
@@ -348,6 +448,42 @@
                 </div>
             </div>
             -->
+        </div>
+    </div>
+    
+    <!-- Custom Date Range Modal -->
+    <div class="modal" id="date-range-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content date-range-modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Select Date Range</h2>
+                <button class="modal-close" id="date-range-close">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="date-range-quick-picks">
+                    <button class="quick-range-btn" data-range="7">Last 7 Days</button>
+                    <button class="quick-range-btn" data-range="30">Last 30 Days</button>
+                    <button class="quick-range-btn" data-range="90">Last 90 Days</button>
+                    <button class="quick-range-btn" data-range="365">Last Year</button>
+                </div>
+                <div class="date-inputs-row">
+                    <div class="date-input-group">
+                        <label class="date-label">Start Date</label>
+                        <input type="date" id="start-date" class="date-input">
+                    </div>
+                    <div class="date-input-group">
+                        <label class="date-label">End Date</label>
+                        <input type="date" id="end-date" class="date-input">
+                    </div>
+                </div>
+                <div class="date-range-info" id="date-range-info"></div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="date-range-cancel">Cancel</button>
+                <button class="btn-primary" id="date-range-apply">Apply Range</button>
+            </div>
         </div>
     </div>
 

@@ -1249,13 +1249,16 @@ body {
 /* Stock Badge on Menu Card */
 .stock-badge {
     position: absolute;
-    top: 8px;
+    bottom: 8px;
     left: 8px;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 9px;
     font-weight: 600;
     backdrop-filter: blur(8px);
+    white-space: nowrap;
+    line-height: 1.2;
+    display: inline-block;
 }
 
 .stock-badge.stock-good {
@@ -5165,16 +5168,15 @@ textarea:focus-visible {
     position: absolute;
     bottom: 8px;
     left: 8px;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
     white-space: nowrap;
-    max-width: calc(100% - 16px);
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.2;
+    display: inline-block;
 }
 
 .stock-badge.stock-high {

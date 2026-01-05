@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ingredients: 'Fresh calamansi, water, sugar, ice',
             combos: 'Pairs perfectly with Sisig or Lumpia'
         },
-        },
         'iced-coffee': {
             name: 'Iced Coffee',
             category: 'Beverages',

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Go Tawee Merchant</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-content">
+      <!-- Header -->
+      <div class="login-header">
+        <div class="login-logo">
+          <img src="assets/images/Logo.png" alt="Go Tawee Logo">
+        </div>
+        
+        <h1 class="login-title">Go Tawee Merchant</h1>
+        <p class="login-subtitle">Restaurant Management Portal</p>
+      </div>
+      
+      <!-- Login Form -->
+      <div class="login-form-card">
+        <h2 class="login-form-title">Sign In</h2>
+        
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <div class="input-group">
+              <span class="input-icon">
+                <i class="material-icons">email</i>
+              </span>
+              <input 
+                type="email" 
+                id="email" 
+                class="form-input" 
+                placeholder="Enter your email"
+                required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-icon">
+                <i class="material-icons">lock</i>
+              </span>
+              <input 
+                type="password" 
+                id="password" 
+                class="form-input" 
+                placeholder="Enter your password"
+                required>
+              <button type="button" class="password-toggle">
+                <i class="material-icons">visibility</i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">
+            Sign In
+          </button>
+        </form>
+      </div>
+      
+      <!-- Additional Options -->
+      <div class="divider-section">
+        <div class="divider-line"></div>
+        <span>New Business?</span>
+        <div class="divider-line"></div>
+      </div>
+      
+      <button class="btn btn-secondary" onclick="alert('Owner registration coming soon')">
+        <i class="material-icons">business</i>
+        Register Your Restaurant
+      </button>
+      
+      <!-- Staff Registration -->
+      <div class="staff-card">
+        <i class="material-icons staff-icon">people</i>
+        
+        <div class="staff-title">Restaurant Staff Member?</div>
+        <div class="staff-description">
+          Ask your manager for an invite code to create your account
+        </div>
+        
+        <button class="btn btn-text" onclick="alert('Staff registration coming soon')">
+          <i class="material-icons">how_to_reg</i>
+          Join with Invite Code
+        </button>
+      </div>
+      
+      <!-- Development Navigation -->
+      <div class="dev-section">
+        <div class="dev-header">
+          <i class="material-icons">developer_mode</i>
+          <span>Demo Navigation</span>
+        </div>
+        
+        <div class="demo-buttons">
+          <button class="btn btn-secondary" onclick="location.href='pages/dashboard.html'">
+            <i class="material-icons">admin_panel_settings</i>
+            Enter as Owner
+          </button>
+          
+          <button class="btn btn-secondary" onclick="location.href='pages/dashboard.html'">
+            <i class="material-icons">work</i>
+            Enter as Staff
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  
+  <script>
+    // Password toggle
+    document.querySelectorAll('.password-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const input = toggle.closest('.input-group').querySelector('input');
+        const icon = toggle.querySelector('i');
+        
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.textContent = 'visibility_off';
+        } else {
+          input.type = 'password';
+          icon.textContent = 'visibility';
+        }
+      });
+    });
+    
+    // Login form handler
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = 'pages/dashboard.html';
+    });
+  </script>
+</body>
+</html>

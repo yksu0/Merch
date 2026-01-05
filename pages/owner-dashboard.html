@@ -63,135 +63,260 @@
         <div class="dashboard-container">
             <!-- Stats Cards -->
             <div class="stats-grid">
-                <div class="stat-card">
+                <a href="owner-analytics.html" class="stat-card clickable">
+                    <div class="stat-icon" style="background: rgba(35, 126, 86, 0.15);">
+                        <span class="material-icons" style="color: var(--turf-green);">payments</span>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value">₱12,540</h3>
+                        <p class="stat-label">Today's Revenue</p>
+                        <p class="stat-change positive">
+                            <span class="material-icons">arrow_upward</span>
+                            12.5% vs yesterday
+                        </p>
+                    </div>
+                </a>
+
+                <a href="owner-analytics.html" class="stat-card clickable">
+                    <div class="stat-icon" style="background: rgba(253, 188, 34, 0.15);">
+                        <span class="material-icons" style="color: var(--amber-flame);">account_balance_wallet</span>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value">₱8,540</h3>
+                        <p class="stat-label">Total Profit</p>
+                        <p class="stat-change neutral">68% margin</p>
+                    </div>
+                </a>
+
+                <a href="owner-menu.html" class="stat-card clickable">
                     <div class="stat-icon" style="background: rgba(253, 188, 34, 0.2);">
                         <span class="material-icons" style="color: var(--amber-flame);">restaurant</span>
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-value">12</h3>
-                        <p class="stat-label">Menu Items</p>
+                        <p class="stat-label">Active Menu Items</p>
+                    </div>
+                </a>
+
+                <a href="owner-staff.html" class="stat-card clickable">
+                    <div class="stat-icon" style="background: rgba(40, 167, 69, 0.15);">
+                        <span class="material-icons" style="color: #28A745;">people_outline</span>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-value">
+                            <span class="online-count">3</span><span class="total-count"> / 5</span>
+                        </h3>
+                        <p class="stat-label">
+                            <span class="live-indicator"></span>
+                            Staff Online
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Pending Actions -->
+            <div class="pending-actions-section" id="pending-actions">
+                <h2 class="section-title">Pending Actions</h2>
+                <div class="pending-actions-grid">
+                    <!-- Password Reset Requests -->
+                    <div class="pending-action-card urgent" id="password-reset-card">
+                        <div class="pending-header">
+                            <div class="pending-icon urgent">
+                                <span class="material-icons">vpn_key</span>
+                            </div>
+                            <div class="pending-info">
+                                <h3 class="pending-title">Password Reset Requests</h3>
+                                <p class="pending-count">1 pending approval</p>
+                            </div>
+                            <span class="pending-badge urgent">1</span>
+                        </div>
+                        <div class="pending-content">
+                            <div class="pending-item">
+                                <div class="pending-item-info">
+                                    <p class="pending-item-name">Carlos Mendoza</p>
+                                    <p class="pending-item-meta">Requested 3 hours ago</p>
+                                </div>
+                                <div class="pending-item-actions">
+                                    <button class="btn-quick-approve">
+                                        <span class="material-icons">check</span>
+                                    </button>
+                                    <button class="btn-quick-deny">
+                                        <span class="material-icons">close</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="owner-staff.html#password-resets" class="pending-footer-link">View All Requests</a>
+                    </div>
+
+                    <!-- Expiring Invite Codes -->
+                    <div class="pending-action-card warning" id="expiring-codes-card">
+                        <div class="pending-header">
+                            <div class="pending-icon warning">
+                                <span class="material-icons">schedule</span>
+                            </div>
+                            <div class="pending-info">
+                                <h3 class="pending-title">Expiring Invite Codes</h3>
+                                <p class="pending-count">1 code expires soon</p>
+                            </div>
+                            <span class="pending-badge warning">!</span>
+                        </div>
+                        <div class="pending-content">
+                            <div class="pending-item">
+                                <div class="pending-item-info">
+                                    <p class="pending-item-name">GT-2026-D4E5F6</p>
+                                    <p class="pending-item-meta warning-text">Expires tomorrow (Jan 7)</p>
+                                </div>
+                                <button class="btn-quick-copy" data-code="GT-2026-D4E5F6">
+                                    <span class="material-icons">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <a href="owner-staff.html#invite-codes" class="pending-footer-link">Manage Codes</a>
+                    </div>
+
+                    <!-- Pending Invitations -->
+                    <div class="pending-action-card info" id="pending-invites-card">
+                        <div class="pending-header">
+                            <div class="pending-icon info">
+                                <span class="material-icons">mail_outline</span>
+                            </div>
+                            <div class="pending-info">
+                                <h3 class="pending-title">Pending Invitations</h3>
+                                <p class="pending-count">2 unused codes</p>
+                            </div>
+                            <span class="pending-badge info">2</span>
+                        </div>
+                        <div class="pending-content-summary">
+                            <p>Invite codes ready to share with new staff members</p>
+                        </div>
+                        <a href="owner-staff.html#invite-codes" class="pending-footer-link">View All Codes</a>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(234, 210, 144, 0.4);">
-                        <span class="material-icons" style="color: var(--evergreen);">payments</span>
+                <!-- All Caught Up State (Hidden by default) -->
+                <div class="all-caught-up" id="all-caught-up" style="display: none;">
+                    <span class="material-icons">check_circle</span>
+                    <h3>All Caught Up!</h3>
+                    <p>No pending actions at the moment.</p>
+                </div>
+            </div>
+
+            <!-- Business Snapshot -->
+            <div class="snapshot-grid">
+                <!-- Mini Revenue Trend -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Revenue Trend</h2>
+                        <a href="owner-analytics.html" class="view-all-link">Full Analytics</a>
                     </div>
-                    <div class="stat-content">
-                        <h3 class="stat-value">₱12,540</h3>
-                        <p class="stat-label">Today's Revenue</p>
+                    <div class="mini-sparkline-container">
+                        <canvas id="revenue-sparkline" width="300" height="80"></canvas>
+                        <div class="sparkline-summary">
+                            <div class="sparkline-stat">
+                                <span class="sparkline-label">This Week</span>
+                                <span class="sparkline-value">₱78,750</span>
+                            </div>
+                            <div class="sparkline-stat">
+                                <span class="sparkline-label">Avg Daily</span>
+                                <span class="sparkline-value">₱11,250</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(24, 53, 38, 0.2);">
-                        <span class="material-icons" style="color: var(--evergreen);">people</span>
+                <!-- Top 3 Selling Items Today -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Top Selling Today</h2>
+                        <a href="owner-analytics.html" class="view-all-link">View All</a>
                     </div>
-                    <div class="stat-content">
-                        <h3 class="stat-value">5</h3>
-                        <p class="stat-label">Active Staff</p>
+                    <div class="top-items-compact">
+                        <div class="compact-item">
+                            <div class="compact-rank">1</div>
+                            <div class="compact-image">
+                                <img src="../assets/images/chicken-inasal.jpg" alt="Chicken Inasal">
+                            </div>
+                            <div class="compact-info">
+                                <p class="compact-name">Chicken Inasal</p>
+                                <p class="compact-sales">248 orders</p>
+                            </div>
+                            <div class="compact-revenue">₱37,200</div>
+                        </div>
+                        <div class="compact-item">
+                            <div class="compact-rank">2</div>
+                            <div class="compact-image">
+                                <img src="../assets/images/adobo.jpg" alt="Adobo">
+                            </div>
+                            <div class="compact-info">
+                                <p class="compact-name">Adobo</p>
+                                <p class="compact-sales">186 orders</p>
+                            </div>
+                            <div class="compact-revenue">₱27,900</div>
+                        </div>
+                        <div class="compact-item">
+                            <div class="compact-rank">3</div>
+                            <div class="compact-image">
+                                <img src="../assets/images/halo-halo.jpg" alt="Halo-Halo">
+                            </div>
+                            <div class="compact-info">
+                                <p class="compact-name">Halo-Halo</p>
+                                <p class="compact-sales">164 orders</p>
+                            </div>
+                            <div class="compact-revenue">₱16,400</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Revenue Chart -->
+            <!-- Recent Activity -->
             <div class="section-card">
-                <h2 class="section-title">Revenue Overview</h2>
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <div class="chart-period-selector">
-                            <button class="period-btn active" data-period="daily">Daily</button>
-                            <button class="period-btn" data-period="weekly">Weekly</button>
-                            <button class="period-btn" data-period="monthly">Monthly</button>
+                <h2 class="section-title">Recent Activity</h2>
+                <div class="activity-feed" id="activity-feed">
+                    <div class="activity-feed-item">
+                        <div class="activity-feed-icon success">
+                            <span class="material-icons">how_to_reg</span>
+                        </div>
+                        <div class="activity-feed-content">
+                            <p class="activity-feed-text"><strong>Elena Torres</strong> registered with invite code</p>
+                            <p class="activity-feed-time">5 hours ago</p>
                         </div>
                     </div>
-                    <div class="revenue-chart">
-                        <div class="chart-bar" style="height: 45%;"></div>
-                        <div class="chart-bar" style="height: 62%;"></div>
-                        <div class="chart-bar" style="height: 55%;"></div>
-                        <div class="chart-bar" style="height: 78%;"></div>
-                        <div class="chart-bar" style="height: 85%;"></div>
-                        <div class="chart-bar" style="height: 72%;"></div>
-                        <div class="chart-bar" style="height: 100%;"></div>
-                    </div>
-                    <div class="chart-summary">
-                        <div class="summary-item">
-                            <span class="summary-label">Average Daily</span>
-                            <span class="summary-value">₱11,250</span>
+                    <div class="activity-feed-item">
+                        <div class="activity-feed-icon online">
+                            <span class="material-icons">login</span>
                         </div>
-                        <div class="summary-item">
-                            <span class="summary-label">This Week</span>
-                            <span class="summary-value">₱78,750</span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">This Month</span>
-                            <span class="summary-value">₱337,500</span>
+                        <div class="activity-feed-content">
+                            <p class="activity-feed-text"><strong>Maria Santos</strong> logged in</p>
+                            <p class="activity-feed-time">2 hours ago</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Top Selling Items -->
-            <div class="section-card">
-                <div class="section-header">
-                    <h2 class="section-title">Top Selling Items</h2>
-                    <a href="owner-analytics.html" class="view-all-link">View Details</a>
-                </div>
-                <div class="top-items-list">
-                    <div class="top-item">
-                        <div class="top-item-rank">1</div>
-                        <div class="top-item-image">
-                            <img src="../assets/images/chicken-inasal.jpg" alt="Chicken Inasal">
+                    <div class="activity-feed-item">
+                        <div class="activity-feed-icon warning">
+                            <span class="material-icons">vpn_key</span>
                         </div>
-                        <div class="top-item-info">
-                            <p class="top-item-name">Chicken Inasal</p>
-                            <p class="top-item-sales">248 orders</p>
+                        <div class="activity-feed-content">
+                            <p class="activity-feed-text"><strong>Carlos Mendoza</strong> requested password reset</p>
+                            <p class="activity-feed-time">3 hours ago</p>
                         </div>
-                        <div class="top-item-revenue">₱37,200</div>
                     </div>
-                    <div class="top-item">
-                        <div class="top-item-rank">2</div>
-                        <div class="top-item-image">
-                            <img src="../assets/images/adobo.jpg" alt="Adobo">
+                    <div class="activity-feed-item">
+                        <div class="activity-feed-icon deactivated">
+                            <span class="material-icons">block</span>
                         </div>
-                        <div class="top-item-info">
-                            <p class="top-item-name">Adobo</p>
-                            <p class="top-item-sales">186 orders</p>
+                        <div class="activity-feed-content">
+                            <p class="activity-feed-text"><strong>Roberto Garcia</strong> was deactivated</p>
+                            <p class="activity-feed-time">Yesterday at 4:10 PM</p>
                         </div>
-                        <div class="top-item-revenue">₱27,900</div>
                     </div>
-                    <div class="top-item">
-                        <div class="top-item-rank">3</div>
-                        <div class="top-item-image">
-                            <img src="../assets/images/halo-halo.jpg" alt="Halo-Halo">
+                    <div class="activity-feed-item">
+                        <div class="activity-feed-icon info">
+                            <span class="material-icons">confirmation_number</span>
                         </div>
-                        <div class="top-item-info">
-                            <p class="top-item-name">Halo-Halo</p>
-                            <p class="top-item-sales">164 orders</p>
+                        <div class="activity-feed-content">
+                            <p class="activity-feed-text">New invite code <strong>GT-2026-D4E5F6</strong> generated</p>
+                            <p class="activity-feed-time">Yesterday at 2:30 PM</p>
                         </div>
-                        <div class="top-item-revenue">₱16,400</div>
-                    </div>
-                    <div class="top-item">
-                        <div class="top-item-rank">4</div>
-                        <div class="top-item-image">
-                            <img src="../assets/images/lumpia.jpg" alt="Lumpia">
-                        </div>
-                        <div class="top-item-info">
-                            <p class="top-item-name">Lumpia Shanghai</p>
-                            <p class="top-item-sales">152 orders</p>
-                        </div>
-                        <div class="top-item-revenue">₱15,200</div>
-                    </div>
-                    <div class="top-item">
-                        <div class="top-item-rank">5</div>
-                        <div class="top-item-image">
-                            <img src="../assets/images/sisig.jpg" alt="Sisig">
-                        </div>
-                        <div class="top-item-info">
-                            <p class="top-item-name">Sisig</p>
-                            <p class="top-item-sales">138 orders</p>
-                        </div>
-                        <div class="top-item-revenue">₱20,700</div>
                     </div>
                 </div>
             </div>
@@ -200,21 +325,21 @@
             <div class="section-card">
                 <h2 class="section-title">Quick Actions</h2>
                 <div class="quick-actions">
-                    <a href="owner-menu.html" class="action-btn">
+                    <button class="action-btn primary" id="quick-generate-code">
+                        <span class="material-icons">confirmation_number</span>
+                        <span>Generate Invite Code</span>
+                    </button>
+                    <a href="owner-menu.html#add-item" class="action-btn">
                         <span class="material-icons">add_circle</span>
                         <span>Add Menu Item</span>
                     </a>
                     <a href="owner-analytics.html" class="action-btn">
                         <span class="material-icons">trending_up</span>
-                        <span>View Analytics</span>
+                        <span>View Full Analytics</span>
                     </a>
                     <a href="owner-staff.html" class="action-btn">
-                        <span class="material-icons">person_add</span>
-                        <span>Add Staff</span>
-                    </a>
-                    <a href="owner-settings.html" class="action-btn">
-                        <span class="material-icons">settings</span>
-                        <span>Settings</span>
+                        <span class="material-icons">people</span>
+                        <span>Manage Staff</span>
                     </a>
                 </div>
             </div>
@@ -223,5 +348,6 @@
 
     <script src="../js/utils.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

@@ -51,18 +51,50 @@
             </button>
             <h1 class="page-title">Orders</h1>
             <div class="filter-tabs">
-                <button class="tab-btn active" data-tab="new">New (3)</button>
-                <button class="tab-btn" data-tab="progress">In Progress (2)</button>
-                <button class="tab-btn" data-tab="completed">Completed</button>
+                <button class="tab-btn active" data-tab="new">New (<span id="new-count">3</span>)</button>
+                <button class="tab-btn" data-tab="progress">Progress (<span id="progress-count">2</span>)</button>
+                <button class="tab-btn" data-tab="completed">Done</button>
             </div>
         </header>
 
+        <!-- Quick Stats Bar -->
+        <div class="orders-stats-bar">
+            <div class="stat-card">
+                <span class="material-icons">pending_actions</span>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-pending">5</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="material-icons">timer</span>
+                <div class="stat-info">
+                    <span class="stat-value" id="longest-wait">8m</span>
+                    <span class="stat-label">Longest Wait</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="material-icons">check_circle</span>
+                <div class="stat-info">
+                    <span class="stat-value" id="completed-today">24</span>
+                    <span class="stat-label">Today</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Orders Content -->
         <div class="dashboard-container">
+            <!-- Search Bar -->
+            <div class="orders-search">
+                <div class="search-box">
+                    <span class="material-icons">search</span>
+                    <input type="text" id="orders-search-input" placeholder="Search by order # or menu item..." class="search-input">
+                </div>
+            </div>
             <!-- New Orders Tab -->
             <div class="tab-content active" id="new-orders">
                 <div class="orders-list">
-                    <div class="order-card new" data-order-id="1">
+                    <div class="order-card new" data-order-id="1" data-timestamp="1767651369667">
                         <div class="order-header">
                             <div class="order-number">
                                 <span class="material-icons">receipt</span>
@@ -72,12 +104,12 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 5</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1024</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">access_time</span>
-                                <span>2 minutes ago</span>
+                                <span class="live-timer" data-timestamp="1767651369667">2m ago</span>
                             </div>
                         </div>
                         <div class="order-items">
@@ -98,9 +130,12 @@
                             <button class="btn-reject" data-action="reject">Reject</button>
                             <button class="btn-accept" data-action="accept">Accept Order</button>
                         </div>
+                        <button class="view-order-details" data-order-id="1">
+                            <span class="material-icons">info</span>
+                        </button>
                     </div>
 
-                    <div class="order-card new" data-order-id="2">
+                    <div class="order-card new" data-order-id="2" data-timestamp="1767651189667">
                         <div class="order-header">
                             <div class="order-number">
                                 <span class="material-icons">receipt</span>
@@ -110,12 +145,12 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 8</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1025</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">access_time</span>
-                                <span>5 minutes ago</span>
+                                <span class="live-timer" data-timestamp="1767651189667">5m ago</span>
                             </div>
                         </div>
                         <div class="order-items">
@@ -132,9 +167,12 @@
                             <button class="btn-reject" data-action="reject">Reject</button>
                             <button class="btn-accept" data-action="accept">Accept Order</button>
                         </div>
+                        <button class="view-order-details" data-order-id="2">
+                            <span class="material-icons">info</span>
+                        </button>
                     </div>
 
-                    <div class="order-card new" data-order-id="3">
+                    <div class="order-card new" data-order-id="3" data-timestamp="1767651009667">
                         <div class="order-header">
                             <div class="order-number">
                                 <span class="material-icons">receipt</span>
@@ -144,12 +182,12 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 3</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1026</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">access_time</span>
-                                <span>8 minutes ago</span>
+                                <span class="live-timer" data-timestamp="1767651009667">8m ago</span>
                             </div>
                         </div>
                         <div class="order-items">
@@ -166,6 +204,9 @@
                             <button class="btn-reject" data-action="reject">Reject</button>
                             <button class="btn-accept" data-action="accept">Accept Order</button>
                         </div>
+                        <button class="view-order-details" data-order-id="3">
+                            <span class="material-icons">info</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -183,8 +224,8 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 12</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1020</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">access_time</span>
@@ -224,8 +265,8 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 7</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1021</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">access_time</span>
@@ -265,8 +306,8 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 4</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1018</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">check_circle</span>
@@ -299,8 +340,8 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 10</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1019</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">check_circle</span>
@@ -337,8 +378,8 @@
                         </div>
                         <div class="order-details">
                             <div class="detail-row">
-                                <span class="material-icons">table_restaurant</span>
-                                <span>Table 2</span>
+                                <span class="material-icons">person</span>
+                                <span>Customer #1017</span>
                             </div>
                             <div class="detail-row">
                                 <span class="material-icons">check_circle</span>
@@ -361,6 +402,64 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="order-details-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-order-number">Order #1024</h3>
+                <button class="modal-close" id="close-order-modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="order-detail-section">
+                    <h4>Order Information</h4>
+                    <div class="detail-row">
+                        <span class="detail-label">Customer:</span>
+                        <span class="detail-value" id="modal-table">Customer #1024</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" id="modal-status">Preparing</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Placed:</span>
+                        <span class="detail-value" id="modal-placed-time">2 minutes ago</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Priority:</span>
+                        <span class="detail-value" id="modal-priority">High Priority</span>
+                    </div>
+                </div>
+                
+                <div class="order-detail-section">
+                    <h4>Items Ordered</h4>
+                    <div id="modal-items-list"></div>
+                </div>
+                
+                <div class="order-detail-section" id="modal-notes-section">
+                    <h4>Special Notes</h4>
+                    <p id="modal-notes">Extra spicy please</p>
+                </div>
+                
+                <div class="order-detail-section" id="modal-total-section">
+                    <div class="detail-row total-row">
+                        <span class="detail-label">Total:</span>
+                        <span class="detail-value price" id="modal-total">₱350</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="close-modal-btn">Close</button>
+                <button type="button" class="btn-primary print-btn" id="print-receipt-btn" style="display:none;">
+                    <span class="material-icons">print</span>
+                    Print Receipt
+                </button>
             </div>
         </div>
     </div>

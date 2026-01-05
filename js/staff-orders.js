@@ -1,23 +1,69 @@
-// Staff Orders JavaScript
+// Enhanced Staff Orders JavaScript with Live Timers, Search, Modal, and Print
 
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
+    const searchInput = document.getElementById('orders-search-input');
+    const orderDetailsModal = document.getElementById('order-details-modal');
+    const closeModalBtn = document.getElementById('close-order-modal');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const printBtn = document.getElementById('print-receipt-btn');
+
+    // Start live timers
+    startLiveTimers();
+    updateUrgencyIndicators();
+    updateStats();
+
+    // Update timers every second
+    setInterval(() => {
+        updateLiveTimers();
+        updateUrgencyIndicators();
+        updateStats();
+    }, 1000);
 
     // Tab switching
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const tab = this.dataset.tab;
             
-            // Remove active from all tabs and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
             
-            // Add active to clicked tab
             this.classList.add('active');
             document.getElementById(`${tab}-orders`).classList.add('active');
         });
     });
+
+    // Search functionality
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            filterOrders(searchTerm);
+        });
+    }
+
+    // View order details buttons
+    document.querySelectorAll('.view-order-details').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const orderId = this.dataset.orderId;
+            const orderCard = this.closest('.order-card');
+            showOrderDetails(orderCard);
+        });
+    });
+
+    // Close modal
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeOrderModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeOrderModal);
+    if (orderDetailsModal) {
+        orderDetailsModal.querySelector('.modal-overlay').addEventListener('click', closeOrderModal);
+    }
+
+    // Print receipt
+    if (printBtn) {
+        printBtn.addEventListener('click', function() {
+            printReceipt();
+        });
+    }
 
     // Accept order buttons
     document.querySelectorAll('[data-action="accept"]').forEach(btn => {
@@ -78,26 +124,232 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Live Timer Functions
+    function startLiveTimers() {
+        const timers = document.querySelectorAll('.live-timer');
+        timers.forEach(timer => {
+            const timestamp = parseInt(timer.dataset.timestamp);
+            if (timestamp) {
+                updateTimerDisplay(timer, timestamp);
+            }
+        });
+    }
+
+    function updateLiveTimers() {
+        const timers = document.querySelectorAll('.live-timer');
+        timers.forEach(timer => {
+            const timestamp = parseInt(timer.dataset.timestamp);
+            if (timestamp) {
+                updateTimerDisplay(timer, timestamp);
+            }
+        });
+    }
+
+    function updateTimerDisplay(timer, timestamp) {
+        const now = Date.now();
+        const diff = now - timestamp;
+        const minutes = Math.floor(diff / 60000);
+        
+        if (minutes < 1) {
+            timer.textContent = 'Just now';
+        } else if (minutes === 1) {
+            timer.textContent = '1m ago';
+        } else {
+            timer.textContent = `${minutes}m ago`;
+        }
+        
+        // Add urgent class if over 10 minutes
+        if (minutes >= 10) {
+            timer.classList.add('urgent');
+        } else {
+            timer.classList.remove('urgent');
+        }
+    }
+
+    function updateUrgencyIndicators() {
+        const orderCards = document.querySelectorAll('.order-card.new, .order-card.progress');
+        orderCards.forEach(card => {
+            const timestamp = parseInt(card.dataset.timestamp);
+            if (timestamp) {
+                const now = Date.now();
+                const diff = now - timestamp;
+                const minutes = Math.floor(diff / 60000);
+                
+                if (minutes >= 15) {
+                    card.classList.add('urgent');
+                } else {
+                    card.classList.remove('urgent');
+                }
+            }
+        });
+    }
+
+    function updateStats() {
+        const newOrders = document.querySelectorAll('#new-orders .order-card').length;
+        const progressOrders = document.querySelectorAll('#progress-orders .order-card').length;
+        const totalPending = newOrders + progressOrders;
+        
+        // Update counts
+        document.getElementById('new-count').textContent = newOrders;
+        document.getElementById('progress-count').textContent = progressOrders;
+        document.getElementById('total-pending').textContent = totalPending;
+        
+        // Calculate longest wait
+        let longestWait = 0;
+        document.querySelectorAll('.order-card.new, .order-card.progress').forEach(card => {
+            const timestamp = parseInt(card.dataset.timestamp);
+            if (timestamp) {
+                const diff = Date.now() - timestamp;
+                const minutes = Math.floor(diff / 60000);
+                if (minutes > longestWait) {
+                    longestWait = minutes;
+                }
+            }
+        });
+        
+        document.getElementById('longest-wait').textContent = longestWait > 0 ? `${longestWait}m` : '0m';
+    }
+
+    // Search Filter
+    function filterOrders(searchTerm) {
+        const allOrders = document.querySelectorAll('.order-card');
+        
+        allOrders.forEach(card => {
+            const orderNumber = card.querySelector('.order-number span:last-child').textContent.toLowerCase();
+            const customer = card.querySelector('.detail-row span:last-child').textContent.toLowerCase();
+            const items = Array.from(card.querySelectorAll('.item-name')).map(item => item.textContent.toLowerCase()).join(' ');
+            
+            const matches = orderNumber.includes(searchTerm) || customer.includes(searchTerm) || items.includes(searchTerm);
+            
+            if (matches || searchTerm === '') {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Modal Functions
+    function showOrderDetails(orderCard) {
+        const orderNumber = orderCard.querySelector('.order-number span:last-child').textContent;
+        const table = orderCard.querySelectorAll('.detail-row')[0].querySelector('span:last-child').textContent;
+        const time = orderCard.querySelectorAll('.detail-row')[1].querySelector('span:last-child').textContent;
+        const items = orderCard.querySelectorAll('.order-item');
+        const notesEl = orderCard.querySelector('.order-notes span:last-child');
+        const totalEl = orderCard.querySelector('.total-amount');
+        const statusBadge = orderCard.querySelector('.priority-badge, .status-badge');
+        
+        // Set modal content
+        document.getElementById('modal-order-number').textContent = orderNumber;
+        document.getElementById('modal-table').textContent = table;
+        document.getElementById('modal-placed-time').textContent = time;
+        document.getElementById('modal-status').textContent = statusBadge ? statusBadge.textContent : 'New';
+        document.getElementById('modal-priority').textContent = statusBadge ? statusBadge.textContent : '-';
+        
+        // Set items
+        const itemsList = document.getElementById('modal-items-list');
+        itemsList.innerHTML = '';
+        items.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'order-item';
+            itemDiv.innerHTML = `
+                <span>${item.querySelector('.item-qty').textContent} ${item.querySelector('.item-name').textContent}</span>
+            `;
+            itemsList.appendChild(itemDiv);
+        });
+        
+        // Set notes
+        const notesSection = document.getElementById('modal-notes-section');
+        if (notesEl) {
+            notesSection.style.display = 'block';
+            document.getElementById('modal-notes').textContent = notesEl.textContent;
+        } else {
+            notesSection.style.display = 'none';
+        }
+        
+        // Set total
+        const totalSection = document.getElementById('modal-total-section');
+        const printButton = document.getElementById('print-receipt-btn');
+        if (totalEl) {
+            totalSection.style.display = 'block';
+            printButton.style.display = 'flex';
+            document.getElementById('modal-total').textContent = totalEl.textContent;
+        } else {
+            totalSection.style.display = 'none';
+            printButton.style.display = 'none';
+        }
+        
+        // Show modal
+        orderDetailsModal.classList.add('active');
+    }
+
+    function closeOrderModal() {
+        orderDetailsModal.classList.remove('active');
+    }
+
+    function printReceipt() {
+        const orderNumber = document.getElementById('modal-order-number').textContent;
+        const table = document.getElementById('modal-table').textContent;
+        const items = document.getElementById('modal-items-list').innerHTML;
+        const total = document.getElementById('modal-total').textContent;
+        
+        const printWindow = window.open('', '', 'height=600,width=400');
+        printWindow.document.write(`
+            <html>
+                <head>
+                    <title>Receipt - ${orderNumber}</title>
+                    <style>
+                        body { font-family: monospace; padding: 20px; max-width: 400px; margin: 0 auto; }
+                        h2 { text-align: center; margin-bottom: 20px; }
+                        .header { text-align: center; border-bottom: 2px dashed #000; padding-bottom: 10px; margin-bottom: 20px; }
+                        .items { margin: 20px 0; }
+                        .item { padding: 5px 0; }
+                        .total { border-top: 2px dashed #000; padding-top: 10px; margin-top: 20px; font-size: 18px; font-weight: bold; text-align: right; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h2>Go Tawee Restaurant</h2>
+                        <p>${orderNumber}</p>
+                        <p>${table}</p>
+                        <p>${new Date().toLocaleString()}</p>
+                    </div>
+                    <div class="items">
+                        ${items}
+                    </div>
+                    <div class="total">
+                        Total: ${total}
+                    </div>
+                    <p style="text-align: center; margin-top: 30px;">Thank you for your order!</p>
+                </body>
+            </html>
+        `);
+        
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(() => {
+            printWindow.print();
+            printWindow.close();
+        }, 250);
+    }
+
+    // Order Action Functions
     function acceptOrder(orderCard, orderId) {
-        // Animate out
         orderCard.style.opacity = '0';
         orderCard.style.transform = 'translateX(20px)';
         
         setTimeout(() => {
-            // Move to in-progress
             const progressTab = document.getElementById('progress-orders').querySelector('.orders-list');
             
-            // Update card status
             orderCard.classList.remove('new');
             orderCard.classList.add('progress');
             orderCard.dataset.status = 'preparing';
+            orderCard.dataset.timestamp = Date.now();
             
-            // Update badge
             const badge = orderCard.querySelector('.priority-badge');
             badge.className = 'status-badge preparing';
             badge.textContent = 'Preparing';
             
-            // Add progress bar
             const progressBar = document.createElement('div');
             progressBar.className = 'order-progress-bar';
             progressBar.innerHTML = '<div class="progress-fill" style="width: 30%;"></div>';
@@ -105,14 +357,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const orderItems = orderCard.querySelector('.order-items');
             orderItems.after(progressBar);
             
-            // Update actions
             const actionsDiv = orderCard.querySelector('.order-actions');
             actionsDiv.innerHTML = `
                 <button class="btn-secondary" data-action="cancel">Cancel</button>
                 <button class="btn-primary" data-action="mark-ready">Mark as Ready</button>
             `;
             
-            // Attach new event listeners
             actionsDiv.querySelector('[data-action="cancel"]').addEventListener('click', function() {
                 if (confirm('Cancel this order? This cannot be undone.')) {
                     cancelOrder(orderCard, orderId);
@@ -123,17 +373,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 markAsReady(orderCard, orderId);
             });
             
-            // Update time
             const timeDetail = orderCard.querySelectorAll('.detail-row')[1];
-            timeDetail.innerHTML = `
-                <span class="material-icons">access_time</span>
-                <span>Started just now</span>
-            `;
+            const timerSpan = timeDetail.querySelector('.live-timer');
+            timerSpan.dataset.timestamp = Date.now();
             
-            // Add to progress list
             progressTab.insertBefore(orderCard, progressTab.firstChild);
             
-            // Reset styles and show
             orderCard.style.opacity = '0';
             orderCard.style.transform = 'translateX(-20px)';
             setTimeout(() => {
@@ -142,10 +387,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 orderCard.style.transform = 'translateX(0)';
             }, 10);
             
-            // Update tab counts
-            updateTabCounts();
-            
-            showSuccessMessage('Order accepted and moved to In Progress');
+            updateStats();
+            showToast('Order accepted and moved to In Progress');
         }, 300);
     }
 
@@ -155,25 +398,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             orderCard.remove();
-            updateTabCounts();
-            showSuccessMessage('Order rejected');
+            updateStats();
+            showToast('Order rejected');
         }, 300);
     }
 
     function markAsReady(orderCard, orderId) {
-        // Update status
         orderCard.dataset.status = 'ready';
         
-        // Update badge
         const badge = orderCard.querySelector('.status-badge');
         badge.className = 'status-badge ready';
         badge.textContent = 'Ready';
         
-        // Update progress bar
         const progressFill = orderCard.querySelector('.progress-fill');
         progressFill.style.width = '100%';
         
-        // Update actions
         const actionsDiv = orderCard.querySelector('.order-actions');
         actionsDiv.innerHTML = `
             <button class="btn-primary full-width" data-action="mark-served">Mark as Served</button>
@@ -183,50 +422,35 @@ document.addEventListener('DOMContentLoaded', function() {
             markAsServed(orderCard, orderId);
         });
         
-        // Update time
-        const timeDetail = orderCard.querySelectorAll('.detail-row')[1];
-        timeDetail.innerHTML = `
-            <span class="material-icons">access_time</span>
-            <span>Ready just now</span>
-        `;
-        
-        showSuccessMessage('Order marked as ready for serving');
+        showToast('Order marked as ready for serving');
     }
 
     function markAsServed(orderCard, orderId) {
-        // Animate out
         orderCard.style.opacity = '0';
         orderCard.style.transform = 'scale(0.95)';
         
         setTimeout(() => {
-            // Move to completed
             const completedTab = document.getElementById('completed-orders').querySelector('.orders-list');
             
-            // Update card
             orderCard.classList.remove('progress');
             orderCard.classList.add('completed');
             
-            // Update badge
             const badge = orderCard.querySelector('.status-badge');
             badge.className = 'status-badge completed';
             badge.textContent = 'Completed';
             
-            // Remove progress bar
             const progressBar = orderCard.querySelector('.order-progress-bar');
             if (progressBar) progressBar.remove();
             
-            // Remove actions
             const actionsDiv = orderCard.querySelector('.order-actions');
             actionsDiv.remove();
             
-            // Update time
             const timeDetail = orderCard.querySelectorAll('.detail-row')[1];
             timeDetail.innerHTML = `
                 <span class="material-icons">check_circle</span>
                 <span>Completed just now</span>
             `;
             
-            // Add total
             const total = document.createElement('div');
             total.className = 'order-total';
             total.innerHTML = `
@@ -235,10 +459,8 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             orderCard.querySelector('.order-items').after(total);
             
-            // Add to completed list
             completedTab.insertBefore(orderCard, completedTab.firstChild);
             
-            // Reset styles and show
             orderCard.style.opacity = '0';
             orderCard.style.transform = 'scale(0.95)';
             setTimeout(() => {
@@ -247,10 +469,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 orderCard.style.transform = 'scale(1)';
             }, 10);
             
-            // Update tab counts
-            updateTabCounts();
-            
-            showSuccessMessage('Order completed successfully!');
+            updateStats();
+            showToast('Order completed successfully!');
         }, 300);
     }
 
@@ -260,38 +480,30 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             orderCard.remove();
-            updateTabCounts();
-            showSuccessMessage('Order cancelled');
+            updateStats();
+            showToast('Order cancelled');
         }, 300);
     }
 
-    function updateTabCounts() {
-        const newCount = document.querySelectorAll('#new-orders .order-card').length;
-        const progressCount = document.querySelectorAll('#progress-orders .order-card').length;
-        
-        tabButtons[0].textContent = `New (${newCount})`;
-        tabButtons[1].textContent = `In Progress (${progressCount})`;
-    }
-
-    function showSuccessMessage(message) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = 'success-message';
-        msgDiv.innerHTML = `
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.innerHTML = `
             <span class="material-icons">check_circle</span>
             <span>${message}</span>
         `;
         
-        document.body.appendChild(msgDiv);
+        document.body.appendChild(toast);
         
         setTimeout(() => {
-            msgDiv.classList.add('show');
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateX(-50%) translateY(0)';
         }, 10);
         
         setTimeout(() => {
-            msgDiv.classList.remove('show');
-            setTimeout(() => {
-                msgDiv.remove();
-            }, 300);
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(20px)';
+            setTimeout(() => toast.remove(), 300);
         }, 3000);
     }
 });

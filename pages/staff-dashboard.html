@@ -59,35 +59,36 @@
         <div class="dashboard-container">
             <!-- Stats Cards -->
             <div class="stats-grid">
-                <div class="stat-card">
+                <a href="staff-orders.html?tab=new" class="stat-card stat-card-clickable">
                     <div class="stat-icon" style="background: rgba(35, 126, 86, 0.2);">
                         <span class="material-icons" style="color: var(--turf-green);">assignment</span>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-value">8</h3>
+                        <h3 class="stat-value" id="pending-count">8</h3>
                         <p class="stat-label">Pending Orders</p>
                     </div>
-                </div>
+                    <span class="stat-priority priority-high-badge">!</span>
+                </a>
 
-                <div class="stat-card">
+                <a href="staff-orders.html?tab=in-progress" class="stat-card stat-card-clickable">
                     <div class="stat-icon" style="background: rgba(253, 188, 34, 0.2);">
                         <span class="material-icons" style="color: var(--amber-flame);">schedule</span>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-value">3</h3>
+                        <h3 class="stat-value" id="progress-count">3</h3>
                         <p class="stat-label">In Progress</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="stat-card">
+                <a href="staff-orders.html?tab=completed" class="stat-card stat-card-clickable">
                     <div class="stat-icon" style="background: rgba(234, 210, 144, 0.4);">
                         <span class="material-icons" style="color: var(--evergreen);">check_circle</span>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-value">27</h3>
+                        <h3 class="stat-value" id="completed-count">27</h3>
                         <p class="stat-label">Completed Today</p>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Active Orders -->
@@ -96,54 +97,48 @@
                     <h2 class="section-title">Active Orders</h2>
                     <a href="staff-orders.html" class="view-all-link">View All</a>
                 </div>
-                <div class="orders-list">
-                    <div class="order-item priority-high">
-                        <div class="order-info">
-                            <p class="order-id">#1234</p>
-                            <p class="order-time">5 minutes ago</p>
+                <div class="dashboard-orders-list" id="active-orders-list">
+                    <div class="dashboard-order-card priority-high" data-order-time="300">
+                        <div class="order-card-header">
+                            <div class="order-card-id">
+                                <span class="order-number">#1234</span>
+                                <span class="order-timer live-timer">5m</span>
+                            </div>
+                            <span class="order-customer-tag">Customer #7821</span>
                         </div>
-                        <div class="order-details">
-                            <p class="order-items">2x Chicken Inasal, 1x Halo-Halo</p>
-                            <p class="order-table">Table 7</p>
-                        </div>
-                        <div class="order-actions">
-                            <button class="btn-action btn-accept">
-                                <span class="material-icons">check</span>
-                                Accept
-                            </button>
-                        </div>
+                        <p class="order-card-items">2x Chicken Inasal, 1x Halo-Halo</p>
+                        <button class="btn-accept-order">
+                            <span class="material-icons">check</span>
+                            Accept Order
+                        </button>
                     </div>
-                    <div class="order-item priority-medium">
-                        <div class="order-info">
-                            <p class="order-id">#1233</p>
-                            <p class="order-time">8 minutes ago</p>
+                    <div class="dashboard-order-card priority-medium" data-order-time="480">
+                        <div class="order-card-header">
+                            <div class="order-card-id">
+                                <span class="order-number">#1233</span>
+                                <span class="order-timer live-timer">8m</span>
+                            </div>
+                            <span class="order-customer-tag">Customer #7820</span>
                         </div>
-                        <div class="order-details">
-                            <p class="order-items">1x Adobo, 1x Iced Coffee</p>
-                            <p class="order-table">Table 3</p>
-                        </div>
-                        <div class="order-actions">
-                            <button class="btn-action btn-accept">
-                                <span class="material-icons">check</span>
-                                Accept
-                            </button>
-                        </div>
+                        <p class="order-card-items">1x Adobo, 1x Iced Coffee</p>
+                        <button class="btn-accept-order">
+                            <span class="material-icons">check</span>
+                            Accept Order
+                        </button>
                     </div>
-                    <div class="order-item priority-low">
-                        <div class="order-info">
-                            <p class="order-id">#1232</p>
-                            <p class="order-time">12 minutes ago</p>
+                    <div class="dashboard-order-card priority-low" data-order-time="720">
+                        <div class="order-card-header">
+                            <div class="order-card-id">
+                                <span class="order-number">#1232</span>
+                                <span class="order-timer live-timer">12m</span>
+                            </div>
+                            <span class="order-customer-tag">Customer #7819</span>
                         </div>
-                        <div class="order-details">
-                            <p class="order-items">3x Lumpia, 1x Sisig</p>
-                            <p class="order-table">Table 5</p>
-                        </div>
-                        <div class="order-actions">
-                            <button class="btn-action btn-accept">
-                                <span class="material-icons">check</span>
-                                Accept
-                            </button>
-                        </div>
+                        <p class="order-card-items">3x Lumpia, 1x Sisig</p>
+                        <button class="btn-accept-order">
+                            <span class="material-icons">check</span>
+                            Accept Order
+                        </button>
                     </div>
                 </div>
             </div>
@@ -151,47 +146,156 @@
             <!-- In Progress -->
             <div class="section-card">
                 <h2 class="section-title">In Progress</h2>
-                <div class="orders-list">
-                    <div class="order-item">
-                        <div class="order-info">
-                            <p class="order-id">#1230</p>
-                            <p class="order-time">15 minutes ago</p>
-                        </div>
-                        <div class="order-details">
-                            <p class="order-items">2x Pancit Canton, 1x Leche Flan</p>
-                            <p class="order-table">Table 2</p>
-                        </div>
-                        <div class="order-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 60%;"></div>
+                <div class="dashboard-orders-list" id="progress-orders-list">
+                    <div class="dashboard-order-card in-progress" data-order-time="900">
+                        <div class="order-card-header">
+                            <div class="order-card-id">
+                                <span class="order-number">#1230</span>
+                                <span class="order-timer live-timer">15m</span>
                             </div>
+                            <span class="order-customer-tag">Customer #7818</span>
                         </div>
-                        <div class="order-actions">
-                            <button class="btn-action btn-complete">
-                                <span class="material-icons">done_all</span>
-                                Complete
-                            </button>
+                        <p class="order-card-items">2x Pancit Canton, 1x Leche Flan</p>
+                        <div class="order-card-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill-bar" style="width: 60%;"></div>
+                            </div>
+                            <span class="progress-percent">60%</span>
+                        </div>
+                        <button class="btn-complete-order">
+                            <span class="material-icons">done_all</span>
+                            Mark Complete
+                        </button>
+                    </div>
+                    <div class="dashboard-order-card in-progress" data-order-time="1200">
+                        <div class="order-card-header">
+                            <div class="order-card-id">
+                                <span class="order-number">#1229</span>
+                                <span class="order-timer live-timer">20m</span>
+                            </div>
+                            <span class="order-customer-tag">Customer #7817</span>
+                        </div>
+                        <p class="order-card-items">1x Beef Tapa, 1x Buko Juice</p>
+                        <div class="order-card-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill-bar" style="width: 85%;"></div>
+                            </div>
+                            <span class="progress-percent">85%</span>
+                        </div>
+                        <button class="btn-complete-order">
+                            <span class="material-icons">done_all</span>
+                            Mark Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rider Status Panel -->
+            <div class="section-card rider-status-panel">
+                <h2 class="section-title">
+                    <span class="material-icons">delivery_dining</span>
+                    Rider Status
+                </h2>
+                <div class="rider-stats">
+                    <div class="rider-stat available">
+                        <span class="rider-count">2</span>
+                        <span class="rider-label">Available</span>
+                    </div>
+                    <div class="rider-stat on-delivery">
+                        <span class="rider-count">1</span>
+                        <span class="rider-label">On Delivery</span>
+                    </div>
+                    <div class="rider-stat offline">
+                        <span class="rider-count">0</span>
+                        <span class="rider-label">Offline</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Low Stock Alert -->
+            <div class="section-card low-stock-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="material-icons" style="color: var(--amber-flame);">warning</span>
+                        Low Stock
+                    </h2>
+                    <a href="staff-menu.html" class="view-all-link">View Menu</a>
+                </div>
+                <div class="low-stock-grid">
+                    <div class="low-stock-item critical">
+                        <span class="material-icons stock-icon">restaurant</span>
+                        <div class="stock-info">
+                            <span class="stock-name">Halo-Halo</span>
+                            <span class="stock-count">3 left</span>
                         </div>
                     </div>
-                    <div class="order-item">
-                        <div class="order-info">
-                            <p class="order-id">#1229</p>
-                            <p class="order-time">20 minutes ago</p>
+                    <div class="low-stock-item critical">
+                        <span class="material-icons stock-icon">restaurant</span>
+                        <div class="stock-info">
+                            <span class="stock-name">Leche Flan</span>
+                            <span class="stock-count">5 left</span>
                         </div>
-                        <div class="order-details">
-                            <p class="order-items">1x Beef Tapa, 1x Buko Juice</p>
-                            <p class="order-table">Table 9</p>
+                    </div>
+                    <div class="low-stock-item warning">
+                        <span class="material-icons stock-icon">local_cafe</span>
+                        <div class="stock-info">
+                            <span class="stock-name">Buko Juice</span>
+                            <span class="stock-count">8 left</span>
                         </div>
-                        <div class="order-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%;"></div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Feed -->
+            <div class="section-card activity-feed">
+                <h2 class="section-title">
+                    <span class="material-icons">history</span>
+                    Recent Activity
+                </h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <span class="activity-icon completed">
+                            <span class="material-icons">check_circle</span>
+                        </span>
+                        <div class="activity-content">
+                            <p class="activity-text">Order #1228 completed</p>
+                            <p class="activity-time">2 min ago</p>
                         </div>
-                        <div class="order-actions">
-                            <button class="btn-action btn-complete">
-                                <span class="material-icons">done_all</span>
-                                Complete
-                            </button>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon progress">
+                            <span class="material-icons">local_shipping</span>
+                        </span>
+                        <div class="activity-content">
+                            <p class="activity-text">Order #1227 out for delivery</p>
+                            <p class="activity-time">5 min ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon new">
+                            <span class="material-icons">add_circle</span>
+                        </span>
+                        <div class="activity-content">
+                            <p class="activity-text">New order #1234 received</p>
+                            <p class="activity-time">5 min ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon progress">
+                            <span class="material-icons">restaurant</span>
+                        </span>
+                        <div class="activity-content">
+                            <p class="activity-text">Order #1230 started preparation</p>
+                            <p class="activity-time">15 min ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon completed">
+                            <span class="material-icons">check_circle</span>
+                        </span>
+                        <div class="activity-content">
+                            <p class="activity-text">Order #1226 delivered</p>
+                            <p class="activity-time">18 min ago</p>
                         </div>
                     </div>
                 </div>
@@ -209,7 +313,7 @@
                         <span class="material-icons">restaurant_menu</span>
                         <span>View Menu</span>
                     </a>
-                    <a href="staff-profile.html" class="action-btn">
+                    <a href="staff-settings.html" class="action-btn">
                         <span class="material-icons">person</span>
                         <span>My Profile</span>
                     </a>
@@ -220,5 +324,6 @@
 
     <script src="../js/utils.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/staff-dashboard.js"></script>
 </body>
 </html>

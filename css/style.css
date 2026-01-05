@@ -1131,6 +1131,286 @@ body {
     gap: 8px;
 }
 
+/* Menu Card Header with SKU */
+.menu-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.menu-sku {
+    font-size: 10px;
+    color: rgba(24, 53, 38, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Menu Card Meta Info */
+.menu-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 12px 0;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: rgba(24, 53, 38, 0.6);
+}
+
+.meta-item .material-icons {
+    font-size: 14px;
+    color: rgba(24, 53, 38, 0.5);
+}
+
+/* Spice Level Badges */
+.spice-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.spice-badge.spice-mild {
+    background: rgba(253, 188, 34, 0.15);
+    color: #d97706;
+}
+
+.spice-badge.spice-medium {
+    background: rgba(251, 146, 60, 0.15);
+    color: #ea580c;
+}
+
+.spice-badge.spice-hot {
+    background: rgba(239, 68, 68, 0.15);
+    color: #dc2626;
+}
+
+/* Form Row for Side-by-Side Fields */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Spice Level Radio Options */
+.spice-level-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.spice-option {
+    flex: 1;
+    min-width: calc(50% - 4px);
+    cursor: pointer;
+}
+
+.spice-option input[type="radio"] {
+    display: none;
+}
+
+.spice-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border: 2px solid rgba(24, 53, 38, 0.15);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: white;
+}
+
+.spice-option input[type="radio"]:checked + .spice-label {
+    border-color: var(--turf-green);
+    background: rgba(35, 126, 86, 0.08);
+}
+
+.spice-icon {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.spice-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--evergreen);
+}
+
+/* Stock Badge on Menu Card */
+.stock-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+}
+
+.stock-badge.stock-good {
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+}
+
+.stock-badge.stock-low {
+    background: rgba(251, 146, 60, 0.9);
+    color: white;
+}
+
+.stock-badge.stock-out {
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+}
+
+/* Limit Badge */
+.limit-badge {
+    font-size: 11px;
+    color: rgba(24, 53, 38, 0.5);
+    font-weight: 500;
+}
+
+/* Price Info with Profit */
+.price-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profit-indicator {
+    font-size: 11px;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+.profit-indicator.negative {
+    color: #dc2626;
+}
+
+/* Form Hints */
+.form-hint {
+    display: block;
+    font-size: 11px;
+    color: rgba(24, 53, 38, 0.5);
+    margin-top: 4px;
+}
+
+.form-hint.profit {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+/* Form Sections */
+.form-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(24, 53, 38, 0.1);
+}
+
+.section-header-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.section-label {
+    font-weight: 600;
+    color: var(--evergreen);
+}
+
+.btn-add-small {
+    padding: 4px 12px;
+    background: var(--turf-green);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-add-small:hover {
+    background: #1a6344;
+}
+
+.btn-remove-small {
+    width: 24px;
+    height: 24px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.btn-remove-small:hover {
+    background: #dc2626;
+}
+
+/* Variants Container */
+.variants-container,
+.addons-container,
+.customizations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.variant-item,
+.addon-item,
+.custom-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.form-input-sm {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid rgba(24, 53, 38, 0.2);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.form-input-sm:focus {
+    outline: none;
+    border-color: var(--turf-green);
+}
+
+/* Menu Card Extras Tags */
+.menu-card-extras {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(24, 53, 38, 0.08);
+}
+
+.extras-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    background: rgba(35, 126, 86, 0.1);
+    color: var(--turf-green);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
 .icon-btn {
     width: 32px;
     height: 32px;
@@ -3274,6 +3554,156 @@ textarea:focus-visible {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(35, 126, 86, 0.5);
+}
+
+/* Combo Meals Styles */
+.combo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.combo-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding: 12px;
+    background: rgba(253, 253, 250, 0.8);
+    border: 1px solid rgba(24, 53, 38, 0.1);
+    border-radius: 10px;
+}
+
+.combo-item-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid rgba(24, 53, 38, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.combo-item-checkbox:hover {
+    border-color: var(--turf-green);
+    background: rgba(35, 126, 86, 0.05);
+}
+
+.combo-item-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--turf-green);
+}
+
+.combo-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.combo-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--evergreen);
+}
+
+.combo-item-category {
+    font-size: 12px;
+    color: rgba(24, 53, 38, 0.6);
+}
+
+.combo-item-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--turf-green);
+}
+
+.combo-savings {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(35, 126, 86, 0.1) 0%, rgba(253, 188, 34, 0.1) 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(35, 126, 86, 0.2);
+}
+
+.savings-label {
+    font-size: 13px;
+    color: rgba(24, 53, 38, 0.7);
+    font-weight: 500;
+}
+
+.savings-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--turf-green);
+}
+
+.savings-percent {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-flame);
+}
+
+.combo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: linear-gradient(135deg, var(--turf-green) 0%, #1a6b48 100%);
+    color: white;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.combo-badge .material-icons {
+    font-size: 14px;
+}
+
+.combo-items-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 12px;
+    background: rgba(35, 126, 86, 0.05);
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.combo-items-tag-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(24, 53, 38, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.combo-items-tag-list {
+    font-size: 12px;
+    color: var(--evergreen);
+    line-height: 1.5;
+}
+
+.combo-save-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: var(--amber-flame);
+    color: var(--evergreen);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
 }
 
 /* Print Styles */

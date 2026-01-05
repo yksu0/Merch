@@ -90,17 +90,32 @@
             <!-- Menu Items Grid -->
             <div class="menu-items-container" id="menu-items-grid">
                 <!-- Menu Item Card 1 -->
-                <div class="menu-card" data-category="main">
+                <div class="menu-card" data-category="main" data-stock="45" data-order-limit="50" data-orders-today="12">
                     <div class="menu-card-image">
                         <img src="../assets/images/chicken-inasal.jpg" alt="Chicken Inasal">
                         <div class="availability-badge available">Available</div>
+                        <div class="stock-badge stock-good">45 left</div>
                     </div>
                     <div class="menu-card-content">
-                        <h3 class="menu-card-title">Chicken Inasal</h3>
+                        <div class="menu-card-header">
+                            <h3 class="menu-card-title">Chicken Inasal</h3>
+                            <span class="menu-sku">GT-001</span>
+                        </div>
                         <p class="menu-card-category">Main Course</p>
                         <p class="menu-card-description">Grilled chicken marinated in lemongrass and spices</p>
+                        <div class="menu-card-meta">
+                            <span class="meta-item">
+                                <span class="material-icons">schedule</span>
+                                15-20 mins
+                            </span>
+                            <span class="spice-badge spice-medium">Medium</span>
+                            <span class="limit-badge">12/50 orders today</span>
+                        </div>
                         <div class="menu-card-footer">
-                            <span class="menu-card-price">₱150</span>
+                            <div class="price-info">
+                                <span class="menu-card-price">₱150</span>
+                                <span class="profit-indicator">+47%</span>
+                            </div>
                             <div class="menu-card-actions">
                                 <button class="icon-btn" title="Edit">
                                     <span class="material-icons">edit</span>
@@ -113,6 +128,11 @@
                                     <span class="toggle-slider"></span>
                                 </label>
                             </div>
+                        </div>
+                        <div class="menu-card-extras">
+                            <div class="extras-tag">3 sizes available</div>
+                            <div class="extras-tag">5 add-ons</div>
+                            <div class="extras-tag">Customizable</div>
                         </div>
                     </div>
                 </div>
@@ -466,6 +486,74 @@
                         <input type="number" id="item-price" class="form-input" placeholder="0.00" step="0.01" min="0" required>
                     </div>
                     
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Cost Price (₱)</label>
+                            <input type="number" id="item-cost" class="form-input" placeholder="0.00" step="0.01" min="0">
+                            <small class="form-hint" id="profit-margin"></small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Stock Quantity</label>
+                            <input type="number" id="item-stock" class="form-input" placeholder="0" min="0" value="999">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Daily Order Limit (Optional)</label>
+                        <input type="number" id="item-order-limit" class="form-input" placeholder="Unlimited" min="0">
+                        <small class="form-hint">Leave empty for no limit</small>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Preparation Time</label>
+                            <select id="item-prep-time" class="form-input" required>
+                                <option value="">Select time</option>
+                                <option value="5-10">5-10 minutes</option>
+                                <option value="10-15">10-15 minutes</option>
+                                <option value="15-20">15-20 minutes</option>
+                                <option value="20-30">20-30 minutes</option>
+                                <option value="30+">30+ minutes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">SKU Code</label>
+                            <input type="text" id="item-sku" class="form-input" placeholder="Auto-generated" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Spice Level</label>
+                        <div class="spice-level-options">
+                            <label class="spice-option">
+                                <input type="radio" name="spice-level" value="none" checked>
+                                <span class="spice-label">
+                                    <span class="spice-text">None</span>
+                                </span>
+                            </label>
+                            <label class="spice-option">
+                                <input type="radio" name="spice-level" value="mild">
+                                <span class="spice-label">
+                                    <span class="spice-text">Mild</span>
+                                </span>
+                            </label>
+                            <label class="spice-option">
+                                <input type="radio" name="spice-level" value="medium">
+                                <span class="spice-label">
+                                    <span class="spice-text">Medium</span>
+                                </span>
+                            </label>
+                            <label class="spice-option">
+                                <input type="radio" name="spice-level" value="hot">
+                                <span class="spice-label">
+                                    <span class="spice-text">Hot</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <label class="form-label">Image</label>
                         <select id="item-image" class="form-input" required>
@@ -486,10 +574,110 @@
                     </div>
                     
                     <div class="form-group">
+                        <label class="form-label">Kitchen Instructions (Optional)</label>
+                        <textarea id="item-instructions" class="form-input" rows="2" placeholder="Special notes for kitchen staff (e.g., 'Always serve with extra garlic rice')"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
                         <label class="form-checkbox">
                             <input type="checkbox" id="item-available" checked>
                             <span>Available for orders</span>
                         </label>
+                    </div>
+                    
+                    <!-- Variants Section -->
+                    <div class="form-section">
+                        <div class="section-header-inline">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="has-variants">
+                                <span class="section-label">Enable Size Variants</span>
+                            </label>
+                        </div>
+                        <div id="variants-container" class="variants-container" style="display: none;">
+                            <div class="variant-item">
+                                <input type="text" class="form-input-sm" placeholder="Small" value="Small">
+                                <input type="number" class="form-input-sm" placeholder="Price" step="0.01" min="0">
+                            </div>
+                            <div class="variant-item">
+                                <input type="text" class="form-input-sm" placeholder="Regular" value="Regular">
+                                <input type="number" class="form-input-sm" placeholder="Price" step="0.01" min="0">
+                            </div>
+                            <div class="variant-item">
+                                <input type="text" class="form-input-sm" placeholder="Large" value="Large">
+                                <input type="number" class="form-input-sm" placeholder="Price" step="0.01" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add-ons Section -->
+                    <div class="form-section">
+                        <div class="section-header-inline">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="has-addons">
+                                <span class="section-label">Add-ons Available</span>
+                            </label>
+                            <button type="button" class="btn-add-small" id="add-addon-btn" style="display: none;">+ Add</button>
+                        </div>
+                        <div id="addons-container" class="addons-container" style="display: none;">
+                            <div class="addon-item">
+                                <input type="text" class="form-input-sm" placeholder="e.g., Extra Rice" data-addon-name>
+                                <input type="number" class="form-input-sm" placeholder="₱20" step="0.01" min="0" data-addon-price>
+                                <button type="button" class="btn-remove-small">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Customizations Section -->
+                    <div class="form-section">
+                        <div class="section-header-inline">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="has-customizations">
+                                <span class="section-label">Customization Options</span>
+                            </label>
+                            <button type="button" class="btn-add-small" id="add-custom-btn" style="display: none;">+ Add</button>
+                        </div>
+                        <div id="customizations-container" class="customizations-container" style="display: none;">
+                            <div class="custom-item">
+                                <input type="text" class="form-input-sm" placeholder="e.g., No onions" data-custom-option>
+                                <button type="button" class="btn-remove-small">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Combo Meals Section -->
+                    <div class="form-section">
+                        <div class="section-header-inline">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="is-combo">
+                                <span class="section-label">This is a Combo Meal</span>
+                            </label>
+                        </div>
+                        <div id="combo-container" class="combo-container" style="display: none;">
+                            <div class="form-group">
+                                <label class="form-label">Select Items to Include</label>
+                                <div id="combo-items-list" class="combo-items-list">
+                                    <!-- Dynamically populated with available menu items -->
+                                </div>
+                                <p class="form-hint" id="combo-items-count">No items selected</p>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Individual Total</label>
+                                    <input type="text" id="combo-individual-price" class="form-input" readonly value="₱0.00">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Combo Price</label>
+                                    <input type="number" id="combo-price" class="form-input" placeholder="Enter combo price" step="0.01" min="0">
+                                </div>
+                            </div>
+                            
+                            <div class="combo-savings" id="combo-savings" style="display: none;">
+                                <span class="savings-label">Customer Saves:</span>
+                                <span class="savings-amount" id="savings-amount">₱0</span>
+                                <span class="savings-percent" id="savings-percent">(0%)</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="modal-actions">

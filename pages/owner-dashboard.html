@@ -24,13 +24,9 @@
                 <span class="material-icons">restaurant_menu</span>
                 <span>Menu Management</span>
             </a>
-            <a href="owner-orders.html" class="nav-item">
-                <span class="material-icons">receipt_long</span>
-                <span>Orders</span>
-            </a>
             <a href="owner-analytics.html" class="nav-item">
                 <span class="material-icons">analytics</span>
-                <span>Analytics</span>
+                <span>Analytics & Reports</span>
             </a>
             <a href="owner-staff.html" class="nav-item">
                 <span class="material-icons">people</span>
@@ -38,14 +34,14 @@
             </a>
             <a href="owner-settings.html" class="nav-item">
                 <span class="material-icons">settings</span>
-                <span>Settings</span>
+                <span>Profile & Settings</span>
             </a>
         </nav>
 
         <div class="sidebar-footer">
             <a href="../index.html" class="nav-item">
                 <span class="material-icons">logout</span>
-                <span>Logout</span>
+                <span>Sign Out</span>
             </a>
         </div>
     </div>
@@ -78,22 +74,12 @@
                 </div>
 
                 <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(35, 126, 86, 0.2);">
-                        <span class="material-icons" style="color: var(--turf-green);">shopping_cart</span>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-value">48</h3>
-                        <p class="stat-label">Orders Today</p>
-                    </div>
-                </div>
-
-                <div class="stat-card">
                     <div class="stat-icon" style="background: rgba(234, 210, 144, 0.4);">
                         <span class="material-icons" style="color: var(--evergreen);">payments</span>
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-value">₱12,540</h3>
-                        <p class="stat-label">Revenue Today</p>
+                        <p class="stat-label">Today's Revenue</p>
                     </div>
                 </div>
 
@@ -108,6 +94,108 @@
                 </div>
             </div>
 
+            <!-- Revenue Chart -->
+            <div class="section-card">
+                <h2 class="section-title">Revenue Overview</h2>
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-period-selector">
+                            <button class="period-btn active" data-period="daily">Daily</button>
+                            <button class="period-btn" data-period="weekly">Weekly</button>
+                            <button class="period-btn" data-period="monthly">Monthly</button>
+                        </div>
+                    </div>
+                    <div class="revenue-chart">
+                        <div class="chart-bar" style="height: 45%;"></div>
+                        <div class="chart-bar" style="height: 62%;"></div>
+                        <div class="chart-bar" style="height: 55%;"></div>
+                        <div class="chart-bar" style="height: 78%;"></div>
+                        <div class="chart-bar" style="height: 85%;"></div>
+                        <div class="chart-bar" style="height: 72%;"></div>
+                        <div class="chart-bar" style="height: 100%;"></div>
+                    </div>
+                    <div class="chart-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">Average Daily</span>
+                            <span class="summary-value">₱11,250</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">This Week</span>
+                            <span class="summary-value">₱78,750</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">This Month</span>
+                            <span class="summary-value">₱337,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Selling Items -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Top Selling Items</h2>
+                    <a href="owner-analytics.html" class="view-all-link">View Details</a>
+                </div>
+                <div class="top-items-list">
+                    <div class="top-item">
+                        <div class="top-item-rank">1</div>
+                        <div class="top-item-image">
+                            <img src="../assets/images/chicken-inasal.jpg" alt="Chicken Inasal">
+                        </div>
+                        <div class="top-item-info">
+                            <p class="top-item-name">Chicken Inasal</p>
+                            <p class="top-item-sales">248 orders</p>
+                        </div>
+                        <div class="top-item-revenue">₱37,200</div>
+                    </div>
+                    <div class="top-item">
+                        <div class="top-item-rank">2</div>
+                        <div class="top-item-image">
+                            <img src="../assets/images/adobo.jpg" alt="Adobo">
+                        </div>
+                        <div class="top-item-info">
+                            <p class="top-item-name">Adobo</p>
+                            <p class="top-item-sales">186 orders</p>
+                        </div>
+                        <div class="top-item-revenue">₱27,900</div>
+                    </div>
+                    <div class="top-item">
+                        <div class="top-item-rank">3</div>
+                        <div class="top-item-image">
+                            <img src="../assets/images/halo-halo.jpg" alt="Halo-Halo">
+                        </div>
+                        <div class="top-item-info">
+                            <p class="top-item-name">Halo-Halo</p>
+                            <p class="top-item-sales">164 orders</p>
+                        </div>
+                        <div class="top-item-revenue">₱16,400</div>
+                    </div>
+                    <div class="top-item">
+                        <div class="top-item-rank">4</div>
+                        <div class="top-item-image">
+                            <img src="../assets/images/lumpia.jpg" alt="Lumpia">
+                        </div>
+                        <div class="top-item-info">
+                            <p class="top-item-name">Lumpia Shanghai</p>
+                            <p class="top-item-sales">152 orders</p>
+                        </div>
+                        <div class="top-item-revenue">₱15,200</div>
+                    </div>
+                    <div class="top-item">
+                        <div class="top-item-rank">5</div>
+                        <div class="top-item-image">
+                            <img src="../assets/images/sisig.jpg" alt="Sisig">
+                        </div>
+                        <div class="top-item-info">
+                            <p class="top-item-name">Sisig</p>
+                            <p class="top-item-sales">138 orders</p>
+                        </div>
+                        <div class="top-item-revenue">₱20,700</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Quick Actions -->
             <div class="section-card">
                 <h2 class="section-title">Quick Actions</h2>
@@ -116,61 +204,18 @@
                         <span class="material-icons">add_circle</span>
                         <span>Add Menu Item</span>
                     </a>
-                    <a href="owner-orders.html" class="action-btn">
-                        <span class="material-icons">receipt_long</span>
-                        <span>View Orders</span>
+                    <a href="owner-analytics.html" class="action-btn">
+                        <span class="material-icons">trending_up</span>
+                        <span>View Analytics</span>
                     </a>
                     <a href="owner-staff.html" class="action-btn">
                         <span class="material-icons">person_add</span>
                         <span>Add Staff</span>
                     </a>
-                    <a href="owner-analytics.html" class="action-btn">
-                        <span class="material-icons">trending_up</span>
-                        <span>View Analytics</span>
+                    <a href="owner-settings.html" class="action-btn">
+                        <span class="material-icons">settings</span>
+                        <span>Settings</span>
                     </a>
-                </div>
-            </div>
-
-            <!-- Recent Orders -->
-            <div class="section-card">
-                <div class="section-header">
-                    <h2 class="section-title">Recent Orders</h2>
-                    <a href="owner-orders.html" class="view-all-link">View All</a>
-                </div>
-                <div class="orders-list">
-                    <div class="order-item">
-                        <div class="order-info">
-                            <p class="order-id">#1234</p>
-                            <p class="order-time">5 minutes ago</p>
-                        </div>
-                        <div class="order-details">
-                            <p class="order-items">2x Chicken Inasal, 1x Halo-Halo</p>
-                        </div>
-                        <div class="order-amount">₱385</div>
-                        <span class="order-status status-pending">Pending</span>
-                    </div>
-                    <div class="order-item">
-                        <div class="order-info">
-                            <p class="order-id">#1233</p>
-                            <p class="order-time">12 minutes ago</p>
-                        </div>
-                        <div class="order-details">
-                            <p class="order-items">1x Adobo, 1x Iced Coffee</p>
-                        </div>
-                        <div class="order-amount">₱195</div>
-                        <span class="order-status status-preparing">Preparing</span>
-                    </div>
-                    <div class="order-item">
-                        <div class="order-info">
-                            <p class="order-id">#1232</p>
-                            <p class="order-time">18 minutes ago</p>
-                        </div>
-                        <div class="order-details">
-                            <p class="order-items">3x Lumpia, 1x Sisig</p>
-                        </div>
-                        <div class="order-amount">₱295</div>
-                        <span class="order-status status-completed">Completed</span>
-                    </div>
                 </div>
             </div>
         </div>

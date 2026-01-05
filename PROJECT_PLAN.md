@@ -121,39 +121,39 @@
 - [x] Add new menu item modal/form
 - [x] Edit menu item functionality
 
-### Phase 4: Owner Analytics & Reports
-- [ ] Create owner-analytics.html page
-- [ ] Sales overview cards (daily, weekly, monthly)
-- [ ] Simple chart for revenue trends
-- [ ] Popular items list
-- [ ] Order trends visualization
-- [ ] Staff performance metrics
-- [ ] Export button (placeholder for now)
+### Phase 4: Owner Analytics & Reports (COMPLETED ✓)
+- [x] Create owner-analytics.html page
+- [x] Sales overview cards (daily, weekly, monthly)
+- [x] Simple chart for revenue trends
+- [x] Popular items list
+- [x] Order trends visualization
+- [x] Staff performance metrics
+- [x] Export button (placeholder for now)
 
-### Phase 5: Owner Staff Management
-- [ ] Create owner-staff.html page
-- [ ] Staff list view
-- [ ] Add staff form with invite code generation
-- [ ] Edit staff modal
-- [ ] Deactivate staff functionality
-- [ ] Active invite codes list
-- [ ] Activity log table
+### Phase 5: Owner Staff Management (COMPLETED ✓)
+- [x] Create owner-staff.html page
+- [x] Staff list view
+- [x] Add staff form with invite code generation
+- [x] Edit staff modal
+- [x] Deactivate staff functionality
+- [x] Active invite codes list
+- [x] Activity log table
 
-### Phase 6: Owner Profile & Settings
-- [ ] Create owner-settings.html page
-- [ ] Restaurant profile section
-- [ ] Owner account settings
-- [ ] Business information form
-- [ ] Notification preferences
-- [ ] Password change form
+### Phase 6: Owner Profile & Settings (COMPLETED ✓)
+- [x] Create owner-settings.html page
+- [x] Restaurant profile section
+- [x] Owner account settings
+- [x] Business information form
+- [x] Notification preferences
+- [x] Password change form
 
-### Phase 7: Staff Menu Items (View Only)
-- [ ] Create staff-menu.html page
-- [ ] Grid/List view of menu items
-- [ ] Search functionality
-- [ ] Item detail modal (read-only)
-- [ ] Availability indicators
-- [ ] Category filters
+### Phase 7: Staff Menu Items (View Only) (COMPLETED ✓)
+- [x] Create staff-menu.html page
+- [x] Grid/List view of menu items
+- [x] Search functionality
+- [x] Item detail modal (read-only)
+- [x] Availability indicators
+- [x] Category filters
 
 ### Phase 8: Staff Orders Management
 - [ ] Create staff-orders.html page
@@ -185,8 +185,8 @@
 
 ## **CURRENT STATUS**
 
-**Last Completed:** Phase 3 - Owner Menu Management ✓ (COMPLETE)
-**Next Up:** Phase 4 - Owner Analytics & Reports
+**Last Completed:** Phase 7 - Staff Menu Items (View Only) ✓ (COMPLETE)
+**Next Up:** Phase 8 - Staff Orders Management
 
 ---
 

@@ -1,29 +1,29 @@
-# 🍽️ Go Tawee Merchant
+# Go Tawee Merchant
 
 A mobile-first merchant management application for Filipino restaurants, optimized for 390px smartphone viewport.
 
 ![Go Tawee](assets/images/Logo.png)
 
-## 📱 Overview
+## Overview
 
 Go Tawee Merchant is a comprehensive restaurant management system with separate interfaces for **Owners** and **Staff**. Built with pure HTML, CSS, and JavaScript, this application provides a complete suite of tools for managing menu items, orders, staff, analytics, and settings.
 
-## ✨ Features
+## Features
 
-### 👔 Owner Features
+### Owner Features
 - **Dashboard** - Revenue overview, top selling items, quick actions
 - **Menu Management** - Full CRUD operations for menu items with images
 - **Analytics & Reports** - Sales trends, order analytics, staff performance
 - **Staff Management** - Add/edit staff, generate invite codes, activity tracking
 - **Profile & Settings** - Restaurant info, business details, notifications
 
-### 👨‍🍳 Staff Features
+### Staff Features
 - **Dashboard** - Active orders overview, pending tasks
 - **Menu Items** - View-only menu catalog with search and filters
 - **Orders Management** - Accept, prepare, and complete customer orders
 - **Settings** - Personal info, shift details, notifications
 
-## 🎨 Design
+## Design
 
 - **Color Palette:**
   - Porcelain (#FDFDFA) - Background
@@ -36,7 +36,7 @@ Go Tawee Merchant is a comprehensive restaurant management system with separate 
 - **Icons:** Material Icons for consistency
 - **Viewport:** 390px mobile-first (iPhone 14/15)
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Redo/
@@ -83,7 +83,7 @@ Redo/
 └── README.md                  # This file
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
@@ -123,7 +123,7 @@ Redo/
 - Click "Staff Demo" button on login page
 - Access all staff operational features
 
-## 🎯 Key Functionality
+## Key Functionality
 
 ### Menu Management
 - Add new menu items with images
@@ -153,7 +153,7 @@ Redo/
 - Staff performance metrics
 - Export functionality
 
-## 🛠️ Utility Functions
+## Utility Functions
 
 The `utils.js` file provides reusable functions:
 
@@ -188,7 +188,7 @@ isValidPhone('+639171234567')
 copyToClipboard('GT-2026-12345', 'Code copied!')
 ```
 
-## 📱 Mobile Optimization
+## Mobile Optimization
 
 - **Viewport:** 390px (iPhone 14/15 size)
 - **Touch-friendly:** Minimum 44x44px tap targets
@@ -196,7 +196,7 @@ copyToClipboard('GT-2026-12345', 'Code copied!')
 - **Hamburger Menu:** Collapsible sidebar navigation
 - **Bottom Sheets:** Mobile-optimized modals
 
-## 🎨 UI Components
+## UI Components
 
 ### Cards
 - Stat cards with trend indicators
@@ -223,7 +223,7 @@ copyToClipboard('GT-2026-12345', 'Code copied!')
 - Ranking badges (1st, 2nd, 3rd)
 - Progress bars with percentages
 
-## 🔧 Customization
+## Customization
 
 ### Colors
 Edit CSS variables in `style.css`:
@@ -243,7 +243,7 @@ Add/edit items in `js/menu-management.js` or through the UI.
 ### Images
 Replace images in `assets/images/` with your own (maintain same filenames or update references).
 
-## 📊 Analytics
+## Analytics
 
 The analytics dashboard provides:
 - **Sales Overview:** Total sales, orders, average order value
@@ -252,7 +252,7 @@ The analytics dashboard provides:
 - **Order Trends:** Peak hours, busiest days
 - **Staff Performance:** Order completion metrics
 
-## 🔐 Security Notes
+## Security Notes
 
 **Current Implementation:**
 - Frontend-only demo application
@@ -269,7 +269,7 @@ The analytics dashboard provides:
 - Store passwords with bcrypt
 - Use JWT tokens for sessions
 
-## 🚧 Future Enhancements
+## Future Enhancements
 
 ### Backend Integration
 - [ ] Connect to REST API
@@ -292,12 +292,12 @@ The analytics dashboard provides:
 - [ ] Service worker caching
 - [ ] Progressive Web App setup
 
-## 📖 Documentation
+## Documentation
 
 - **[PROJECT_PLAN.md](PROJECT_PLAN.md)** - Complete development roadmap with 10 phases
 - **[TESTING_CHECKLIST.md](TESTING_CHECKLIST.md)** - Comprehensive testing guide
 
-## 🤝 Contributing
+## Contributing
 
 This is a demo project built for educational purposes. Feel free to:
 - Fork the repository
@@ -305,11 +305,11 @@ This is a demo project built for educational purposes. Feel free to:
 - Submit pull requests
 - Report issues
 
-## 📄 License
+## License
 
 This project is open source and available for educational purposes.
 
-## 👨‍💻 Development
+## Development
 
 **Built with:**
 - HTML5
@@ -319,19 +319,19 @@ This project is open source and available for educational purposes.
 
 **No frameworks or libraries required!**
 
-## 📞 Support
+## Support
 
 For questions or issues:
 1. Check [TESTING_CHECKLIST.md](TESTING_CHECKLIST.md)
 2. Review [PROJECT_PLAN.md](PROJECT_PLAN.md)
 3. Examine the code comments
 
-## 🎉 Credits
+## Credits
 
 **Go Tawee Merchant** - Filipino Restaurant Management System
 - Designed for 390px mobile viewport
 - Features 12 authentic Filipino dishes
-- Built with ❤️ for restaurant owners and staff
+- Built with love for restaurant owners and staff
 
 ---
 
@@ -339,4 +339,4 @@ For questions or issues:
 **Status:** ✅ Production Ready  
 **Last Updated:** January 2025
 
-Enjoy managing your Filipino restaurant with Go Tawee! 🍽️
+Enjoy managing your Filipino restaurant with Go Tawee!

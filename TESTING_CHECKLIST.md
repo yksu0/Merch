@@ -1,6 +1,6 @@
 # Go Tawee Merchant - Testing Checklist
 
-## 📱 Mobile Responsiveness (390px viewport)
+## Mobile Responsiveness (390px viewport)
 ### All Pages
 - [x] Login page (index.html)
 - [x] Owner Dashboard (owner-dashboard.html)
@@ -17,7 +17,7 @@
 
 ---
 
-## 🧭 Navigation Testing
+## Navigation Testing
 
 ### Login Page
 - [x] Password toggle (visibility icon)
@@ -50,7 +50,7 @@
 
 ---
 
-## ⚙️ Functionality Testing
+## Functionality Testing
 
 ### Owner Dashboard
 - [x] 3 stat cards display correctly
@@ -153,7 +153,7 @@
 
 ---
 
-## 🎨 UI/UX Polish
+## UI/UX Polish
 
 ### Design Consistency
 - [x] Go Tawee color palette used throughout
@@ -197,7 +197,7 @@
 
 ---
 
-## 🛠️ Utility Features
+## Utility Features
 
 ### Utils.js Functions
 - [x] showLoading(message)
@@ -223,7 +223,7 @@
 
 ---
 
-## 📦 Assets
+## Assets
 
 ### Images (all in assets/images/)
 - [x] Logo.png
@@ -244,7 +244,7 @@
 
 ---
 
-## 📂 File Structure
+## File Structure
 
 ```
 Redo/
@@ -283,7 +283,7 @@ Redo/
 
 ---
 
-## ✅ Final Verification
+## Final Verification
 
 ### Code Quality
 - [x] No console errors
@@ -317,7 +317,7 @@ Redo/
 
 ---
 
-## 🎯 Summary
+## Summary
 
 **Total Pages:** 10 (1 login + 9 app pages)
 **Total JavaScript Files:** 9
@@ -329,7 +329,7 @@ Redo/
 
 ---
 
-## 📝 Notes for Future Enhancements
+## Notes for Future Enhancements
 
 1. **Backend Integration**
    - Connect to real API endpoints

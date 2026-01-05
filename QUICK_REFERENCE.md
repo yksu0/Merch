@@ -1,6 +1,6 @@
 # Quick Reference Guide
 
-## 🚀 Common Tasks
+## Common Tasks
 
 ### Adding a New Menu Item (via UI)
 1. Navigate to **Menu Management** page
@@ -67,7 +67,7 @@
 
 ---
 
-## 🎨 UI Elements Quick Reference
+## UI Elements Quick Reference
 
 ### Buttons
 ```html
@@ -127,7 +127,7 @@
 
 ---
 
-## 💻 JavaScript Functions
+## JavaScript Functions
 
 ### Loading States
 ```javascript
@@ -208,7 +208,7 @@ copyToClipboard('GT-2026-12345', 'Invite code copied!');
 
 ---
 
-## 🎯 Navigation
+## Navigation
 
 ### Owner Pages
 - `/Redo/index.html` → Login
@@ -227,7 +227,7 @@ copyToClipboard('GT-2026-12345', 'Invite code copied!');
 
 ---
 
-## 🔧 Customization
+## Customization
 
 ### Change Primary Color
 In `css/style.css`:
@@ -267,7 +267,7 @@ function getCategoryLabel(category) {
 
 ---
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
 **Primary Viewport:** 390px (iPhone 14/15)
 
@@ -283,7 +283,7 @@ To support additional sizes, add media queries in `style.css`.
 
 ---
 
-## 🐛 Common Issues
+## Common Issues
 
 ### Images Not Loading
 **Problem:** Images show broken link icon  
@@ -322,7 +322,7 @@ menuForm.addEventListener('submit', function(e) {
 
 ---
 
-## 📊 Data Structure Examples
+## Data Structure Examples
 
 ### Menu Item
 ```javascript
@@ -369,7 +369,7 @@ menuForm.addEventListener('submit', function(e) {
 
 ---
 
-## 🎨 Color Palette Reference
+## Color Palette Reference
 
 ```css
 --porcelain: #FDFDFA;      /* Off-white background */
@@ -387,7 +387,7 @@ menuForm.addEventListener('submit', function(e) {
 
 ---
 
-## 📦 File Import Order
+## File Import Order
 
 Always load scripts in this order:
 1. `utils.js` (utility functions)
@@ -402,7 +402,7 @@ Always load scripts in this order:
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+## Keyboard Shortcuts
 
 ### General
 - **Esc** - Close modal/sidebar
@@ -415,7 +415,7 @@ Always load scripts in this order:
 
 ---
 
-## 🔍 Debugging Tips
+## Debugging Tips
 
 ### Check Console
 Open browser DevTools (F12) and check Console tab for errors.
@@ -437,7 +437,7 @@ Check Network tab in DevTools to verify images load correctly.
 
 ---
 
-## 💡 Pro Tips
+## Pro Tips
 
 1. **Use the utils.js functions** - Don't reinvent the wheel
 2. **Consistent naming** - Follow existing patterns (kebab-case for IDs/classes)

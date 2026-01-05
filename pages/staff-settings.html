@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Settings - Go Tawee Staff</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../assets/images/Logo.png" alt="Go Tawee Logo" class="sidebar-logo">
+            <h2 class="sidebar-title">Go Tawee</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="staff-dashboard.html" class="nav-item">
+                <span class="material-icons">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="staff-menu.html" class="nav-item">
+                <span class="material-icons">restaurant_menu</span>
+                <span>Menu Items</span>
+            </a>
+            <a href="staff-orders.html" class="nav-item">
+                <span class="material-icons">receipt_long</span>
+                <span>Orders</span>
+            </a>
+            <a href="staff-settings.html" class="nav-item active">
+                <span class="material-icons">settings</span>
+                <span>Profile & Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../index.html" class="nav-item">
+                <span class="material-icons">logout</span>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <button class="menu-toggle" id="menu-btn">
+                <span class="material-icons">menu</span>
+            </button>
+            <h1 class="page-title">Profile & Settings</h1>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="dashboard-container">
+            <!-- Personal Information -->
+            <div class="section-card">
+                <h2 class="section-title">Personal Information</h2>
+                <form id="personal-form" class="settings-form">
+                    <div class="form-group">
+                        <label class="form-label" for="staff-full-name">Full Name</label>
+                        <input type="text" id="staff-full-name" class="form-input" value="Maria Santos" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="staff-email-address">Email Address</label>
+                        <input type="email" id="staff-email-address" class="form-input" value="maria.santos@gotawee.ph" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="staff-phone-number">Phone Number</label>
+                        <input type="tel" id="staff-phone-number" class="form-input" value="+63 917 123 4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="staff-position">Position</label>
+                        <input type="text" id="staff-position" class="form-input" value="Server" disabled>
+                        <p class="form-hint">Contact your manager to change your position</p>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Save Personal Info</button>
+                </form>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="section-card">
+                <h2 class="section-title">Account Settings</h2>
+                <form id="account-settings-form" class="settings-form">
+                    <div class="form-group">
+                        <label class="form-label" for="staff-username">Username</label>
+                        <input type="text" id="staff-username" class="form-input" value="maria.santos" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="staff-employee-id">Employee ID</label>
+                        <input type="text" id="staff-employee-id" class="form-input" value="EMP-2025-001" disabled>
+                        <p class="form-hint">Your unique employee identifier</p>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Save Account Settings</button>
+                </form>
+            </div>
+
+            <!-- Change Password -->
+            <div class="section-card">
+                <h2 class="section-title">Change Password</h2>
+                <form id="staff-password-form" class="settings-form">
+                    <div class="form-group">
+                        <label class="form-label" for="staff-current-password">Current Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="staff-current-password" class="form-input" required>
+                            <button type="button" class="password-toggle" data-target="staff-current-password">
+                                <span class="material-icons">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="staff-new-password">New Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="staff-new-password" class="form-input" required>
+                            <button type="button" class="password-toggle" data-target="staff-new-password">
+                                <span class="material-icons">visibility_off</span>
+                            </button>
+                        </div>
+                        <p class="form-hint">Minimum 8 characters, include uppercase, lowercase, and numbers</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="staff-confirm-password">Confirm New Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="staff-confirm-password" class="form-input" required>
+                            <button type="button" class="password-toggle" data-target="staff-confirm-password">
+                                <span class="material-icons">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Change Password</button>
+                </form>
+            </div>
+
+            <!-- Shift Information -->
+            <div class="section-card">
+                <h2 class="section-title">Shift Information</h2>
+                <div class="shift-info-content">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <span class="material-icons">schedule</span>
+                        </div>
+                        <div class="info-details">
+                            <p class="info-label">Current Shift</p>
+                            <p class="info-value">Morning Shift</p>
+                            <p class="info-meta">10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <span class="material-icons">today</span>
+                        </div>
+                        <div class="info-details">
+                            <p class="info-label">Work Days</p>
+                            <p class="info-value">Monday - Friday</p>
+                            <p class="info-meta">5 days per week</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <span class="material-icons">timer</span>
+                        </div>
+                        <div class="info-details">
+                            <p class="info-label">Hours This Week</p>
+                            <p class="info-value">32 hours</p>
+                            <p class="info-meta">Target: 40 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <span class="material-icons">date_range</span>
+                        </div>
+                        <div class="info-details">
+                            <p class="info-label">Join Date</p>
+                            <p class="info-value">Jan 15, 2025</p>
+                            <p class="info-meta">3 weeks ago</p>
+                        </div>
+                    </div>
+
+                    <p class="shift-note">
+                        <span class="material-icons">info</span>
+                        Contact your manager to request shift changes or time off
+                    </p>
+                </div>
+            </div>
+
+            <!-- Notification Preferences -->
+            <div class="section-card">
+                <h2 class="section-title">Notification Preferences</h2>
+                <form id="staff-notifications-form" class="settings-form">
+                    <div class="notification-item">
+                        <div class="notification-info">
+                            <p class="notification-title">New Order Alerts</p>
+                            <p class="notification-desc">Get notified when new orders arrive</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-info">
+                            <p class="notification-title">Shift Reminders</p>
+                            <p class="notification-desc">Receive reminders before your shift starts</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-info">
+                            <p class="notification-title">Schedule Updates</p>
+                            <p class="notification-desc">Notifications for schedule changes</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-info">
+                            <p class="notification-title">Manager Messages</p>
+                            <p class="notification-desc">Alerts for messages from management</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Save Preferences</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/staff-settings.js"></script>
+</body>
+</html>

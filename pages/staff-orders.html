@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Go Tawee Staff</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../assets/images/Logo.png" alt="Go Tawee Logo" class="sidebar-logo">
+            <h2 class="sidebar-title">Go Tawee</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="staff-dashboard.html" class="nav-item">
+                <span class="material-icons">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="staff-menu.html" class="nav-item">
+                <span class="material-icons">restaurant_menu</span>
+                <span>Menu Items</span>
+            </a>
+            <a href="staff-orders.html" class="nav-item active">
+                <span class="material-icons">receipt_long</span>
+                <span>Orders</span>
+            </a>
+            <a href="staff-settings.html" class="nav-item">
+                <span class="material-icons">settings</span>
+                <span>Profile & Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../index.html" class="nav-item">
+                <span class="material-icons">logout</span>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <button class="menu-toggle" id="menu-btn">
+                <span class="material-icons">menu</span>
+            </button>
+            <h1 class="page-title">Orders</h1>
+            <div class="filter-tabs">
+                <button class="tab-btn active" data-tab="new">New (3)</button>
+                <button class="tab-btn" data-tab="progress">In Progress (2)</button>
+                <button class="tab-btn" data-tab="completed">Completed</button>
+            </div>
+        </header>
+
+        <!-- Orders Content -->
+        <div class="dashboard-container">
+            <!-- New Orders Tab -->
+            <div class="tab-content active" id="new-orders">
+                <div class="orders-list">
+                    <div class="order-card new" data-order-id="1">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1024</span>
+                            </div>
+                            <span class="priority-badge high">High Priority</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 5</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">access_time</span>
+                                <span>2 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Chicken Inasal</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Halo-Halo</span>
+                            </div>
+                        </div>
+                        <div class="order-notes">
+                            <span class="material-icons">note</span>
+                            <span>Extra spicy please</span>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-reject" data-action="reject">Reject</button>
+                            <button class="btn-accept" data-action="accept">Accept Order</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card new" data-order-id="2">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1025</span>
+                            </div>
+                            <span class="priority-badge medium">Medium Priority</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 8</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">access_time</span>
+                                <span>5 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">3x</span>
+                                <span class="item-name">Lumpia Shanghai</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Calamansi Juice</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-reject" data-action="reject">Reject</button>
+                            <button class="btn-accept" data-action="accept">Accept Order</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card new" data-order-id="3">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1026</span>
+                            </div>
+                            <span class="priority-badge low">Low Priority</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 3</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">access_time</span>
+                                <span>8 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Pancit Canton</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Iced Coffee</span>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-reject" data-action="reject">Reject</button>
+                            <button class="btn-accept" data-action="accept">Accept Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In Progress Orders Tab -->
+            <div class="tab-content" id="progress-orders">
+                <div class="orders-list">
+                    <div class="order-card progress" data-order-id="101" data-status="preparing">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1020</span>
+                            </div>
+                            <span class="status-badge preparing">Preparing</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 12</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">access_time</span>
+                                <span>Started 10 min ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Adobo</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Sisig</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Buko Juice</span>
+                            </div>
+                        </div>
+                        <div class="order-progress-bar">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-secondary" data-action="cancel">Cancel</button>
+                            <button class="btn-primary" data-action="mark-ready">Mark as Ready</button>
+                        </div>
+                    </div>
+
+                    <div class="order-card progress" data-order-id="102" data-status="ready">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1021</span>
+                            </div>
+                            <span class="status-badge ready">Ready</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 7</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">access_time</span>
+                                <span>Ready 2 min ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Chicken Inasal</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Leche Flan</span>
+                            </div>
+                        </div>
+                        <div class="order-progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-primary full-width" data-action="mark-served">Mark as Served</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Orders Tab -->
+            <div class="tab-content" id="completed-orders">
+                <div class="orders-list">
+                    <div class="order-card completed" data-order-id="201">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1018</span>
+                            </div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 4</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">check_circle</span>
+                                <span>Completed 1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Pancit Canton</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">3x</span>
+                                <span class="item-name">Lumpia Shanghai</span>
+                            </div>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <span class="total-amount">₱540</span>
+                        </div>
+                    </div>
+
+                    <div class="order-card completed" data-order-id="202">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1019</span>
+                            </div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 10</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">check_circle</span>
+                                <span>Completed 1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Sisig</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">1x</span>
+                                <span class="item-name">Halo-Halo</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Calamansi Juice</span>
+                            </div>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <span class="total-amount">₱350</span>
+                        </div>
+                    </div>
+
+                    <div class="order-card completed" data-order-id="203">
+                        <div class="order-header">
+                            <div class="order-number">
+                                <span class="material-icons">receipt</span>
+                                <span>Order #1017</span>
+                            </div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span class="material-icons">table_restaurant</span>
+                                <span>Table 2</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="material-icons">check_circle</span>
+                                <span>Completed 2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Chicken Inasal</span>
+                            </div>
+                            <div class="order-item">
+                                <span class="item-qty">2x</span>
+                                <span class="item-name">Buko Juice</span>
+                            </div>
+                        </div>
+                        <div class="order-total">
+                            <span>Total:</span>
+                            <span class="total-amount">₱420</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/staff-orders.js"></script>
+</body>
+</html>

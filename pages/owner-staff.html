@@ -61,6 +61,50 @@
 
         <!-- Staff Content -->
         <div class="dashboard-container">
+            <!-- Quick Stats Cards -->
+            <div class="staff-stats-grid">
+                <div class="staff-stat-card">
+                    <div class="stat-icon" style="background: rgba(35, 126, 86, 0.15);">
+                        <span class="material-icons" style="color: var(--turf-green);">groups</span>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Total Active Staff</p>
+                        <h3 class="stat-value" id="total-active-staff">5</h3>
+                    </div>
+                </div>
+
+                <div class="staff-stat-card">
+                    <div class="stat-icon" style="background: rgba(40, 167, 69, 0.15);">
+                        <span class="material-icons" style="color: #28A745;">online_prediction</span>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Currently Online</p>
+                        <h3 class="stat-value" id="currently-online">3</h3>
+                    </div>
+                </div>
+
+                <div class="staff-stat-card">
+                    <div class="stat-icon" style="background: rgba(253, 188, 34, 0.15);">
+                        <span class="material-icons" style="color: var(--amber-flame);">mail_outline</span>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-label">Pending Invites</p>
+                        <h3 class="stat-value" id="pending-invites">2</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="staff-search-container">
+                <div class="search-input-wrapper">
+                    <span class="material-icons search-icon">search</span>
+                    <input type="text" id="staff-search" class="staff-search-input" placeholder="Search staff by name...">
+                    <button class="search-clear-btn" id="search-clear" style="display: none;">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+            </div>
+
             <!-- Active Staff List -->
             <div class="section-card">
                 <h2 class="section-title">Active Staff (5)</h2>
@@ -75,7 +119,12 @@
                                     <p class="staff-card-name">Maria Santos</p>
                                     <p class="staff-card-role">Server</p>
                                 </div>
-                                <span class="status-badge active">Active</span>
+                                <div class="staff-status-wrapper">
+                                    <span class="status-badge online">
+                                        <span class="status-dot"></span>
+                                        Online
+                                    </span>
+                                </div>
                             </div>
                             <div class="staff-card-details">
                                 <div class="detail-item">
@@ -93,10 +142,10 @@
                             </div>
                         </div>
                         <div class="staff-card-actions">
-                            <button class="action-btn edit-btn" data-action="edit">
-                                <span class="material-icons">edit</span>
+                            <button class="action-btn view-btn" data-action="view" title="View Details">
+                                <span class="material-icons">visibility</span>
                             </button>
-                            <button class="action-btn deactivate-btn" data-action="deactivate">
+                            <button class="action-btn deactivate-btn" data-action="deactivate" title="Deactivate">
                                 <span class="material-icons">block</span>
                             </button>
                         </div>
@@ -112,7 +161,12 @@
                                     <p class="staff-card-name">Juan Dela Cruz</p>
                                     <p class="staff-card-role">Server</p>
                                 </div>
-                                <span class="status-badge active">Active</span>
+                                <div class="staff-status-wrapper">
+                                    <span class="status-badge online">
+                                        <span class="status-dot"></span>
+                                        Online
+                                    </span>
+                                </div>
                             </div>
                             <div class="staff-card-details">
                                 <div class="detail-item">
@@ -130,10 +184,10 @@
                             </div>
                         </div>
                         <div class="staff-card-actions">
-                            <button class="action-btn edit-btn" data-action="edit">
-                                <span class="material-icons">edit</span>
+                            <button class="action-btn view-btn" data-action="view" title="View Details">
+                                <span class="material-icons">visibility</span>
                             </button>
-                            <button class="action-btn deactivate-btn" data-action="deactivate">
+                            <button class="action-btn deactivate-btn" data-action="deactivate" title="Deactivate">
                                 <span class="material-icons">block</span>
                             </button>
                         </div>
@@ -149,7 +203,12 @@
                                     <p class="staff-card-name">Ana Reyes</p>
                                     <p class="staff-card-role">Server</p>
                                 </div>
-                                <span class="status-badge active">Active</span>
+                                <div class="staff-status-wrapper">
+                                    <span class="status-badge online">
+                                        <span class="status-dot"></span>
+                                        Online
+                                    </span>
+                                </div>
                             </div>
                             <div class="staff-card-details">
                                 <div class="detail-item">
@@ -167,10 +226,10 @@
                             </div>
                         </div>
                         <div class="staff-card-actions">
-                            <button class="action-btn edit-btn" data-action="edit">
-                                <span class="material-icons">edit</span>
+                            <button class="action-btn view-btn" data-action="view" title="View Details">
+                                <span class="material-icons">visibility</span>
                             </button>
-                            <button class="action-btn deactivate-btn" data-action="deactivate">
+                            <button class="action-btn deactivate-btn" data-action="deactivate" title="Deactivate">
                                 <span class="material-icons">block</span>
                             </button>
                         </div>
@@ -186,7 +245,13 @@
                                     <p class="staff-card-name">Carlos Mendoza</p>
                                     <p class="staff-card-role">Server</p>
                                 </div>
-                                <span class="status-badge active">Active</span>
+                                <div class="staff-status-wrapper">
+                                    <span class="status-badge offline">
+                                        <span class="status-dot"></span>
+                                        Offline
+                                    </span>
+                                    <p class="last-seen">Last seen 5 hours ago</p>
+                                </div>
                             </div>
                             <div class="staff-card-details">
                                 <div class="detail-item">
@@ -204,10 +269,10 @@
                             </div>
                         </div>
                         <div class="staff-card-actions">
-                            <button class="action-btn edit-btn" data-action="edit">
-                                <span class="material-icons">edit</span>
+                            <button class="action-btn view-btn" data-action="view" title="View Details">
+                                <span class="material-icons">visibility</span>
                             </button>
-                            <button class="action-btn deactivate-btn" data-action="deactivate">
+                            <button class="action-btn deactivate-btn" data-action="deactivate" title="Deactivate">
                                 <span class="material-icons">block</span>
                             </button>
                         </div>
@@ -223,7 +288,13 @@
                                     <p class="staff-card-name">Elena Torres</p>
                                     <p class="staff-card-role">Server</p>
                                 </div>
-                                <span class="status-badge active">Active</span>
+                                <div class="staff-status-wrapper">
+                                    <span class="status-badge offline">
+                                        <span class="status-dot"></span>
+                                        Offline
+                                    </span>
+                                    <p class="last-seen">Last seen yesterday</p>
+                                </div>
                             </div>
                             <div class="staff-card-details">
                                 <div class="detail-item">
@@ -241,9 +312,13 @@
                             </div>
                         </div>
                         <div class="staff-card-actions">
-                            <button class="action-btn edit-btn" data-action="edit">
-                                <span class="material-icons">edit</span>
+                            <button class="action-btn view-btn" data-action="view" title="View Details">
+                                <span class="material-icons">visibility</span>
                             </button>
+                            <button class="action-btn deactivate-btn" data-action="deactivate" title="Deactivate">
+                                <span class="material-icons">block</span>
+                            </button>
+                        </div>
                             <button class="action-btn deactivate-btn" data-action="deactivate">
                                 <span class="material-icons">block</span>
                             </button>
@@ -252,11 +327,150 @@
                 </div>
             </div>
 
-            <!-- Active Invite Codes -->
+            <!-- Pending Invitations -->
             <div class="section-card">
                 <div class="section-header">
-                    <h2 class="section-title">Active Invite Codes</h2>
+                    <h2 class="section-title">Pending Invitations (<span id="pending-invites-count">2</span>)</h2>
                     <button class="generate-code-btn" id="generate-code-btn">
+                        <span class="material-icons">add</span>
+                        <span>Generate Code</span>
+                    </button>
+                </div>
+                <div class="invite-codes-list" id="pending-codes-list">
+                    <div class="invite-code-card" data-code-id="1">
+                        <div class="code-info">
+                            <p class="code-value">GT-2026-A1B2C3</p>
+                            <p class="code-meta">
+                                <span class="code-status-badge unused">Unused</span>
+                                <span class="code-expiry">Expires in 6 days (Jan 12, 2026)</span>
+                            </p>
+                        </div>
+                        <div class="code-actions">
+                            <button class="copy-code-btn" data-code="GT-2026-A1B2C3" title="Copy Code">
+                                <span class="material-icons">content_copy</span>
+                            </button>
+                            <button class="delete-code-btn" data-code="GT-2026-A1B2C3" title="Delete Code">
+                                <span class="material-icons">delete_outline</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="invite-code-card expiring-soon" data-code-id="2">
+                        <div class="code-info">
+                            <p class="code-value">GT-2026-D4E5F6</p>
+                            <p class="code-meta">
+                                <span class="code-status-badge unused">Unused</span>
+                                <span class="code-expiry warning">Expires in 1 day (Jan 7, 2026)</span>
+                            </p>
+                        </div>
+                        <div class="code-actions">
+                            <button class="copy-code-btn" data-code="GT-2026-D4E5F6" title="Copy Code">
+                                <span class="material-icons">content_copy</span>
+                            </button>
+                            <button class="delete-code-btn" data-code="GT-2026-D4E5F6" title="Delete Code">
+                                <span class="material-icons">delete_outline</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password Reset Requests -->
+            <div class="section-card" id="password-reset-section">
+                <h2 class="section-title">Password Reset Requests (<span id="reset-requests-count">1</span>)</h2>
+                <div class="reset-requests-list" id="reset-requests-list">
+                    <div class="reset-request-card" data-request-id="1">
+                        <div class="request-info">
+                            <div class="request-staff">
+                                <div class="request-avatar">
+                                    <span class="material-icons">person</span>
+                                </div>
+                                <div>
+                                    <p class="request-name">Carlos Mendoza</p>
+                                    <p class="request-role">Server</p>
+                                </div>
+                            </div>
+                            <p class="request-meta">
+                                <span class="material-icons">schedule</span>
+                                Requested 3 hours ago
+                            </p>
+                            <p class="request-reason">Reason: Forgot password</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="btn-approve" data-action="approve">
+                                <span class="material-icons">check_circle</span>
+                                Approve
+                            </button>
+                            <button class="btn-deny" data-action="deny">
+                                <span class="material-icons">cancel</span>
+                                Deny
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deactivated Staff (Collapsible) -->
+            <div class="section-card collapsible-section collapsed" id="deactivated-section">
+                <div class="section-header clickable" id="deactivated-header">
+                    <h2 class="section-title">
+                        <span class="material-icons expand-icon">expand_more</span>
+                        Deactivated Staff (<span id="deactivated-count">1</span>)
+                    </h2>
+                </div>
+                <div class="section-content" id="deactivated-content" style="display: none;">
+                    <div class="staff-list">
+                        <div class="staff-card deactivated" data-staff-id="6">
+                            <div class="staff-card-avatar">
+                                <span class="material-icons">person</span>
+                            </div>
+                            <div class="staff-card-info">
+                                <div class="staff-card-header">
+                                    <div>
+                                        <p class="staff-card-name">Roberto Garcia</p>
+                                        <p class="staff-card-role">Server</p>
+                                    </div>
+                                    <div class="staff-status-wrapper">
+                                        <span class="status-badge deactivated">
+                                            <span class="status-dot"></span>
+                                            Deactivated
+                                        </span>
+                                        <p class="last-seen">Deactivated on Jan 3, 2026</p>
+                                    </div>
+                                </div>
+                                <div class="staff-card-details">
+                                    <div class="detail-item">
+                                        <span class="material-icons">email</span>
+                                        <span>roberto.garcia@gotawee.ph</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="material-icons">phone</span>
+                                        <span>+63 917 678 9012</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="material-icons">calendar_today</span>
+                                        <span>Joined: Dec 20, 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="staff-card-actions">
+                                <button class="action-btn view-btn" data-action="view" title="View Details">
+                                    <span class="material-icons">visibility</span>
+                                </button>
+                                <button class="action-btn reactivate-btn" data-action="reactivate" title="Reactivate">
+                                    <span class="material-icons">check_circle</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Invite Codes -->
+            <div class="section-card" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">Active Invite Codes</h2>
+                    <button class="generate-code-btn" id="generate-code-btn-old">
                         <span class="material-icons">add</span>
                         <span>Generate</span>
                     </button>
@@ -289,7 +503,7 @@
                 <h2 class="section-title">Recent Activity</h2>
                 <div class="activity-list">
                     <div class="activity-item">
-                        <div class="activity-icon">
+                        <div class="activity-icon online">
                             <span class="material-icons">login</span>
                         </div>
                         <div class="activity-content">
@@ -299,17 +513,17 @@
                     </div>
 
                     <div class="activity-item">
-                        <div class="activity-icon">
-                            <span class="material-icons">person_add</span>
+                        <div class="activity-icon success">
+                            <span class="material-icons">how_to_reg</span>
                         </div>
                         <div class="activity-content">
-                            <p class="activity-text"><strong>Elena Torres</strong> joined the team</p>
+                            <p class="activity-text"><strong>Elena Torres</strong> registered with code GT-2026-X7Y8Z9</p>
                             <p class="activity-time">5 hours ago</p>
                         </div>
                     </div>
 
                     <div class="activity-item">
-                        <div class="activity-icon">
+                        <div class="activity-icon offline">
                             <span class="material-icons">logout</span>
                         </div>
                         <div class="activity-content">
@@ -319,21 +533,21 @@
                     </div>
 
                     <div class="activity-item">
-                        <div class="activity-icon">
-                            <span class="material-icons">edit</span>
+                        <div class="activity-icon deactivated">
+                            <span class="material-icons">block</span>
                         </div>
                         <div class="activity-content">
-                            <p class="activity-text"><strong>Ana Reyes</strong> profile updated</p>
-                            <p class="activity-time">Yesterday at 3:20 PM</p>
+                            <p class="activity-text"><strong>Roberto Garcia</strong> was deactivated</p>
+                            <p class="activity-time">Yesterday at 4:10 PM</p>
                         </div>
                     </div>
 
                     <div class="activity-item">
-                        <div class="activity-icon">
-                            <span class="material-icons">login</span>
+                        <div class="activity-icon warning">
+                            <span class="material-icons">vpn_key</span>
                         </div>
                         <div class="activity-content">
-                            <p class="activity-text"><strong>Carlos Mendoza</strong> logged in</p>
+                            <p class="activity-text"><strong>Carlos Mendoza</strong> requested password reset</p>
                             <p class="activity-time">Yesterday at 10:15 AM</p>
                         </div>
                     </div>
@@ -342,8 +556,145 @@
         </div>
     </div>
 
+    <!-- Staff Details Modal (View Only) -->
+    <div class="modal" id="staff-details-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 class="modal-title">Staff Details</h3>
+                <button class="modal-close" id="close-details-modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="details-profile-section">
+                    <div class="details-avatar-large">
+                        <span class="material-icons">person</span>
+                    </div>
+                    <div class="details-main-info">
+                        <h2 class="details-name" id="details-name">Maria Santos</h2>
+                        <p class="details-role" id="details-role">Server</p>
+                        <div class="details-status-badge" id="details-status">
+                            <span class="status-badge online">
+                                <span class="status-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-info-grid">
+                    <div class="details-info-item">
+                        <span class="material-icons">email</span>
+                        <div>
+                            <p class="details-label">Email Address</p>
+                            <p class="details-value" id="details-email">maria.santos@gotawee.ph</p>
+                        </div>
+                    </div>
+
+                    <div class="details-info-item">
+                        <span class="material-icons">phone</span>
+                        <div>
+                            <p class="details-label">Phone Number</p>
+                            <p class="details-value" id="details-phone">+63 917 123 4567</p>
+                        </div>
+                    </div>
+
+                    <div class="details-info-item">
+                        <span class="material-icons">calendar_today</span>
+                        <div>
+                            <p class="details-label">Join Date</p>
+                            <p class="details-value" id="details-join-date">January 15, 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="details-info-item">
+                        <span class="material-icons">badge</span>
+                        <div>
+                            <p class="details-label">Invite Code Used</p>
+                            <p class="details-value" id="details-invite-code">GT-2026-A1B2C3</p>
+                        </div>
+                    </div>
+
+                    <div class="details-info-item">
+                        <span class="material-icons">schedule</span>
+                        <div>
+                            <p class="details-label">Last Seen</p>
+                            <p class="details-value" id="details-last-seen">Currently online</p>
+                        </div>
+                    </div>
+
+                    <div class="details-info-item">
+                        <span class="material-icons">event</span>
+                        <div>
+                            <p class="details-label">Account Created</p>
+                            <p class="details-value" id="details-created-date">January 15, 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-activity-section">
+                    <h4 class="details-section-title">Recent Activity</h4>
+                    <div class="details-activity-list" id="details-activity">
+                        <div class="activity-item-small">
+                            <span class="material-icons">login</span>
+                            <p>Logged in 2 hours ago</p>
+                        </div>
+                        <div class="activity-item-small">
+                            <span class="material-icons">logout</span>
+                            <p>Logged out yesterday at 6:45 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-danger" id="details-deactivate-btn">
+                    <span class="material-icons">block</span>
+                    Deactivate Account
+                </button>
+                <button type="button" class="btn-secondary" id="close-details-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generate Code Modal -->
+    <div class="modal" id="generate-code-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Generate Invite Code</h3>
+                <button class="modal-close" id="close-generate-modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Expiry Duration</label>
+                    <select id="code-expiry-duration" class="form-input">
+                        <option value="7">7 Days</option>
+                        <option value="14" selected>14 Days</option>
+                        <option value="30">30 Days</option>
+                    </select>
+                </div>
+
+                <div class="generated-code-preview" id="code-preview">
+                    <p class="code-preview-label">Generated Code:</p>
+                    <p class="code-preview-value" id="preview-code-value">GT-2026-X7Y8Z9</p>
+                    <p class="code-preview-expiry">Expires: <span id="preview-expiry-date">Jan 20, 2026</span></p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="cancel-generate">Cancel</button>
+                <button type="button" class="btn-primary" id="save-code">
+                    <span class="material-icons">content_copy</span>
+                    Copy & Save Code
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Add/Edit Staff Modal -->
-    <div class="modal" id="staff-modal">
+    <div class="modal" id="staff-modal" style="display: none;">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">

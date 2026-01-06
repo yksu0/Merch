@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as Staff - Go Tawee Merchant</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-content">
+            <!-- Back Button -->
+            <a href="../index.html" class="back-link">
+                <span class="material-icons">arrow_back</span>
+                Back to Login
+            </a>
+
+            <!-- Header -->
+            <div class="login-header">
+                <div class="login-logo">
+                    <img src="../assets/images/Logo.png" alt="Go Tawee Logo">
+                </div>
+                <h1 class="login-title">Join Your Team</h1>
+                <p class="login-subtitle">Enter your invite code to get started</p>
+            </div>
+
+            <!-- Step 1: Invite Code -->
+            <div class="login-form-card" id="step-1">
+                <div class="step-indicator">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Invite Code</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Your Info</span>
+                    </div>
+                </div>
+
+                <h2 class="login-form-title">Enter Invite Code</h2>
+                <p class="form-description">Ask your manager for your unique 6-digit invite code</p>
+
+                <form id="invite-form">
+                    <div class="form-group">
+                        <label for="invite-code" class="form-label">Invite Code</label>
+                        <div class="invite-code-inputs">
+                            <input type="text" maxlength="1" class="code-input" data-index="0" autofocus>
+                            <input type="text" maxlength="1" class="code-input" data-index="1">
+                            <input type="text" maxlength="1" class="code-input" data-index="2">
+                            <span class="code-separator">-</span>
+                            <input type="text" maxlength="1" class="code-input" data-index="3">
+                            <input type="text" maxlength="1" class="code-input" data-index="4">
+                            <input type="text" maxlength="1" class="code-input" data-index="5">
+                        </div>
+                        <p class="form-hint" id="code-hint">Code format: XXX-XXX</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="verify-btn" disabled>
+                        <i class="material-icons">verified</i>
+                        Verify Code
+                    </button>
+                </form>
+
+                <div class="help-section">
+                    <p><i class="material-icons">help_outline</i> Don't have a code?</p>
+                    <p class="help-text">Contact your restaurant manager to receive an invite code.</p>
+                </div>
+            </div>
+
+            <!-- Step 2: Create Account (Hidden initially) -->
+            <div class="login-form-card" id="step-2" style="display: none;">
+                <div class="step-indicator">
+                    <div class="step completed">
+                        <span class="step-number"><i class="material-icons">check</i></span>
+                        <span class="step-label">Invite Code</span>
+                    </div>
+                    <div class="step-line active"></div>
+                    <div class="step active">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Your Info</span>
+                    </div>
+                </div>
+
+                <div class="restaurant-badge">
+                    <i class="material-icons">storefront</i>
+                    <div class="restaurant-info">
+                        <span class="restaurant-name" id="restaurant-name-display">Go Tawee Restaurant</span>
+                        <span class="restaurant-role">Joining as: <strong>Staff Member</strong></span>
+                    </div>
+                </div>
+
+                <h2 class="login-form-title">Create Your Account</h2>
+
+                <form id="staff-register-form">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="full-name" class="form-label">Full Name</label>
+                        <div class="input-group">
+                            <span class="input-icon">
+                                <i class="material-icons">person</i>
+                            </span>
+                            <input 
+                                type="text" 
+                                id="full-name" 
+                                class="form-input" 
+                                placeholder="Enter your full name"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-icon">
+                                <i class="material-icons">email</i>
+                            </span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-input" 
+                                placeholder="Enter your email"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="input-group">
+                            <span class="input-icon">
+                                <i class="material-icons">phone</i>
+                            </span>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                class="form-input" 
+                                placeholder="e.g. 09123456789"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-icon">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="form-input" 
+                                placeholder="Create a password"
+                                required>
+                            <button type="button" class="password-toggle">
+                                <i class="material-icons">visibility</i>
+                            </button>
+                        </div>
+                        <p class="form-hint">At least 8 characters</p>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-icon">
+                                <i class="material-icons">lock_outline</i>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="confirm-password" 
+                                class="form-input" 
+                                placeholder="Confirm your password"
+                                required>
+                            <button type="button" class="password-toggle">
+                                <i class="material-icons">visibility</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="material-icons">how_to_reg</i>
+                        Create Account
+                    </button>
+                </form>
+
+                <button class="btn btn-text back-to-step1" id="back-to-step1">
+                    <i class="material-icons">arrow_back</i>
+                    Use Different Code
+                </button>
+            </div>
+
+            <!-- Already have account -->
+            <div class="auth-footer">
+                <p>Already have an account? <a href="../index.html">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Code input handling
+        const codeInputs = document.querySelectorAll('.code-input');
+        const verifyBtn = document.getElementById('verify-btn');
+        const codeHint = document.getElementById('code-hint');
+
+        codeInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                const value = e.target.value.toUpperCase();
+                e.target.value = value;
+
+                // Move to next input
+                if (value && index < codeInputs.length - 1) {
+                    codeInputs[index + 1].focus();
+                }
+
+                // Check if all inputs are filled
+                checkCodeComplete();
+            });
+
+            input.addEventListener('keydown', (e) => {
+                // Handle backspace
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    codeInputs[index - 1].focus();
+                }
+            });
+
+            // Handle paste
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').replace(/-/g, '').toUpperCase();
+                
+                for (let i = 0; i < Math.min(pastedData.length, codeInputs.length); i++) {
+                    codeInputs[i].value = pastedData[i];
+                }
+                
+                checkCodeComplete();
+            });
+        });
+
+        function checkCodeComplete() {
+            const allFilled = Array.from(codeInputs).every(input => input.value.length === 1);
+            verifyBtn.disabled = !allFilled;
+            
+            if (allFilled) {
+                codeHint.textContent = 'Code ready to verify';
+                codeHint.style.color = 'var(--turf-green)';
+            } else {
+                codeHint.textContent = 'Code format: XXX-XXX';
+                codeHint.style.color = '';
+            }
+        }
+
+        // Verify code form
+        document.getElementById('invite-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const code = Array.from(codeInputs).map(i => i.value).join('');
+            
+            // Demo: any 6-character code works
+            if (code.length === 6) {
+                // Show step 2
+                document.getElementById('step-1').style.display = 'none';
+                document.getElementById('step-2').style.display = 'block';
+            }
+        });
+
+        // Back to step 1
+        document.getElementById('back-to-step1').addEventListener('click', () => {
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-1').style.display = 'block';
+            
+            // Clear code inputs
+            codeInputs.forEach(input => input.value = '');
+            codeInputs[0].focus();
+            checkCodeComplete();
+        });
+
+        // Password toggle
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const input = toggle.closest('.input-group').querySelector('input');
+                const icon = toggle.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.textContent = 'visibility_off';
+                } else {
+                    input.type = 'password';
+                    icon.textContent = 'visibility';
+                }
+            });
+        });
+
+        // Staff registration form
+        document.getElementById('staff-register-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long!');
+                return;
+            }
+            
+            // Demo: redirect to staff dashboard
+            alert('Account created successfully! Welcome to the team.');
+            window.location.href = 'staff-dashboard.html';
+        });
+    </script>
+</body>
+</html>
